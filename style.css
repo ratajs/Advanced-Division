@@ -118,7 +118,7 @@ nav button {
 	cursor: pointer;
 	transition: .3s;
 }
-nav button:hover, nav button.active {
+nav button:hover, nav button:focus, nav button.active {
 	background-color: var(--color-highlight);
 }
 nav button.active {
