@@ -209,8 +209,6 @@ footer {
 
 @media (max-width: 32rem) {
 	#container {
-		margin: 0;
-		width: 100%;
 		background-color: var(--color-bg-1);
 		--color-bg-3: var(--color-bg-2-a);
 	}
