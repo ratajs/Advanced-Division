@@ -7,6 +7,8 @@
 	--color-bg-1: var(--color-light);
 	--color-bg-1-a: #fafafaaa;
 	--color-bg-2: #eee6ff;
+	--color-bg-2-a: #eee6ffaa;
+	--color-bg-3: var(--color-bg-1-a);
 	--color-accent: #b39afd;
 	--color-accent-a: #b28afd33;
 	--color-highlight: var(--color-accent);
@@ -18,6 +20,7 @@ body.dark {
 	--color-bg-1: #000;
 	--color-bg-1-a: #000a;
 	--color-bg-2: var(--color-dark);
+	--color-bg-2-a: #222a;
 	--color-highlight: #f6f49533;
 	--color-text: var(--color-light);
 	--color-link: #ffbe00;
@@ -47,7 +50,7 @@ body {
 	height: 2rem;
 	border: none;
 	border-radius: 50%;
-	background-color: var(--color-bg-1-a);
+	background-color: var(--color-bg-3);
 	color: var(--color-text);
 	font-family: 'Material Icons Round';
 	font-size: 1.5rem;
@@ -75,7 +78,7 @@ main > div {
 	margin: 1rem 0;
 	padding: 1.5rem;
 	border-radius: .5rem;
-	background-color: var(--color-bg-1-a);
+	background-color: var(--color-bg-3);
 	overflow: hidden;
 }
 main > div.collapsed {
@@ -205,6 +208,12 @@ footer {
 }
 
 @media (max-width: 32rem) {
+	#container {
+		margin: 0;
+		width: 100%;
+		background-color: var(--color-bg-1);
+		--color-bg-3: var(--color-bg-2-a);
+	}
 	main > div {
 		grid-template-rows: 5rem auto 5rem;
 		grid-template-areas: 'header' 'content' 'nav';
