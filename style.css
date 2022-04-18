@@ -59,6 +59,8 @@ header img {
 	width: 5rem;
 	height: 5rem;
 	margin: 0 auto;
+	border-radius: 50%;
+	box-shadow: .2rem .4rem .8rem var(--color-shadow);
 }
 h1 {
 	text-align: center;
