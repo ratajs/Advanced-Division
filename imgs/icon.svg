@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="128" height="128">
+	<linearGradient id="gradient0" gradientTransform="rotate(90)">
+		<stop offset="5%" stop-color="#021aee"/>
+		<stop offset="95%" stop-color="#eed602"/>
+	</linearGradient>
+	<linearGradient id="gradient1" gradientTransform="rotate(90)">
+		<stop offset="5%" stop-color="#b39afd"/>
+		<stop offset="95%" stop-color="#fdfde5"/>
+	</linearGradient>
+	<radialGradient id="gradient2" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+		<stop offset="5%" stop-color="#eee6ff"/>
+		<stop offset="95%" stop-color="#f6f495"/>
+	</radialGradient>
+	<radialGradient id="gradient3" cx="50%" cy="50%" r="75%" fx="50%" fy="50%">
+		<stop offset="5%" stop-color="#f2f069"/>
+		<stop offset="95%" stop-color="#b39afd"/>
+	</radialGradient>
+	<circle cx="64" cy="64" r="61" stroke="url(#gradient0)" stroke-width="3" fill="url(#gradient1)"/>
+	<circle cx="64" cy="32" r="8" stroke="none" fill="url(#gradient2)"/>
+	<circle cx="64" cy="96" r="8" stroke="none" fill="url(#gradient3)"/>
+</svg>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" x-init="document.init">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="author" content="RatajS">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="icon" href="./imgs/icon.svg" type="image/svg+xml">
+		<link rel="stylesheet" href="./style.css" type="text/css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.9.6/cdn.min.js" type="text/javascript" integrity="sha512-RlMminvqzANTSpLALZsF7wwsvivsTrCX1gGELQo+Pn8t/VKocUMaMUWDA/oXFjQOt8HdkipLL1d9F3jNmbYVeg==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+		<script src="https://cdn.jsdelivr.net/gh/lrsjng/lolight@1.4.0/dist/lolight.min.js" type="text/javascript" integrity="sha384-jLPkEyloF4Kv9rHEafLniNgZ0hcwM+DWHOAZPSSbvA909wNIhNZh1J5Kmeq7JWYt" crossorigin="anonymous"></script>
+		<script src="./index.js" type="text/javascript"></script>
+		<title>Advanced Division</title>
+	</head>
+	<body x-data="opts" :class="theme">
+		<div id="container">
+			<header>
+				<h1>Advanced Division</h1>
+				<button id="theme-switcher" aria-hidden="true" @click="dark = !dark" x-text="themeSwitcherIcon"></button>
+			</header>
+			<main x-data="sections" x-init="section ='js'">
+				<div :class="collapsed('js py dart cli')" @click="expand('js py dart cli')">
+					<h2>API&nbsp;/&nbsp;CLI</h2>
+					<nav>
+						<button :class="activeSection('js')" @click="select('js')">JavaScript</button>
+						<button :class="activeSection('py')" @click="select('py')">Python</button>
+						<button :class="activeSection('dart')" @click="select('dart')">Dart</button>
+						<button :class="activeSection('cli')" @click="select('cli')">CLI</button>
+						<button class="next" @click="next('js py dart cli')"><span x-text="nextLabel('js py dart cli', 'JavaScript;Python;Dart;CLI')"></span><span class="material-icons-round">navigate_next</span></button>
+					</nav>
+					<div>
+						<section :class="activeSection('js')">
+							<h3>JavaScript</h3>
+							<p>
+								Include this code to use Advanced Division in your website&nbsp;/&nbsp;JavaScript project:
+							</p>
+							<code class="lolight">
+								&lt;script src="https://cdn.jsdelivr.net/gh/ratajs/Advanced-Division-js@1.1/AdvDiv.min.js" type="text/javascript" integrity="sha384-F92uLNwg7qk0tLL5q0cIZ6SCkXVQUVfcdEeTaWB8KM21oqoz4ncJVAhgoZBx+UCo" crossorigin="anonymous"&gt;&lt;/script&gt;
+							</code>
+							<p>
+								<strong>Usage:</strong>
+								<code class="lolight">
+									advdiv(n1, n2[, r[, rstr1, rstr2]])
+								</code>
+								<ul>
+									<li><span class="mono">n1</span>&nbsp;&ndash;&nbsp;First number (numerator)</li>
+									<li><span class="mono">n2</span>&nbsp;&ndash;&nbsp;Second number (denominator)</li>
+									<li><span class="mono">r</span>&nbsp;&ndash;&nbsp;Recurring decimals of the first number (default <code class="lolight">0</code>)</li>
+									<li><span class="mono">rstr1</span>&nbsp;&ndash;&nbsp;String to be inserted before recursion (default <code class="lolight">"["</code>)</li>
+									<li><span class="mono">rstr2</span>&nbsp;&ndash;&nbsp;String to be inserted after recursion (default <code class="lolight">"]"</code>)</li>
+								</ul>
+								See the <a href="https://github.com/ratajs/Advanced-Division-js/">repository</a>.
+							</p>
+						</section>
+						<section :class="activeSection('py')">
+							<h3>Python</h3>
+							<p>
+								Download the <a href="https://github.com/ratajs/Advanced-Division-py/blob/1.1/AdvDiv.py" target="_blank">AdvDiv.py</a> file and import it with:
+							</p>
+							<code class="lolight">
+								import AdvDiv
+							</code>
+							<p>
+								<strong>Usage:</strong>
+								<code class="lolight">
+									AdvDiv.div(n1, n2[, r[, rstr1, rstr2]])
+								</code>
+								<ul>
+									<li><span class="mono">n1</span>&nbsp;&ndash;&nbsp;First number (numerator)</li>
+									<li><span class="mono">n2</span>&nbsp;&ndash;&nbsp;Second number (denominator)</li>
+									<li><span class="mono">r</span>&nbsp;&ndash;&nbsp;Recurring decimals of the first number (default <code class="lolight">0</code>)</li>
+									<li><span class="mono">rstr1</span>&nbsp;&ndash;&nbsp;String to be inserted before recursion (default <code class="lolight">"["</code>)</li>
+									<li><span class="mono">rstr2</span>&nbsp;&ndash;&nbsp;String to be inserted after recursion (default <code class="lolight">"]"</code>)</li>
+								</ul>
+								See the <a href="https://github.com/ratajs/Advanced-Division-py/">repository</a>.
+							</p>
+						</section>
+						<section :class="activeSection('dart')">
+							<h3>Dart</h3>
+							<p>
+								Download the <a href="https://github.com/ratajs/Advanced-Division-dart/blob/1.1/AdvDiv.dart" target="_blank">AdvDiv.dart</a> file and import it with:
+							</p>
+							<code class="lolight">
+								import 'AdvDiv.dart';
+							</code>
+								<strong>Usage:</strong>
+								<code class="lolight">
+									advdiv(n1, n2[, r[, rstr1, rstr2]])
+								</code>
+								<ul>
+									<li><span class="mono">n1</span>&nbsp;&ndash;&nbsp;First number (numerator)</li>
+									<li><span class="mono">n2</span>&nbsp;&ndash;&nbsp;Second number (denominator)</li>
+									<li><span class="mono">r</span>&nbsp;&ndash;&nbsp;Recurring decimals of the first number (default <code class="lolight">0</code>)</li>
+									<li><span class="mono">rstr1</span>&nbsp;&ndash;&nbsp;String to be inserted before recursion (default <code class="lolight">"["</code>)</li>
+									<li><span class="mono">rstr2</span>&nbsp;&ndash;&nbsp;String to be inserted after recursion (default <code class="lolight">"]"</code>)</li>
+								</ul>
+								See the <a href="https://github.com/ratajs/Advanced-Division-dart/">repository</a>.
+							</p>
+						</section>
+						<section :class="activeSection('cli')">
+							<h3>CLI</h3>
+							<p>
+								Download the <a href="https://github.com/ratajs/Advanced-Division-dart/releases/download/1.1/advdiv">advdiv</a> file for Linux or <a href="https://github.com/ratajs/Advanced-Division-dart/releases/download/1.1/advdiv.exe">advdiv.exe</a> for Windows.
+								You can move the file to <span class="mono">/bin/</span> or another directory specified in the <span class="mono">PATH</span> environment variable on Linux to use it anywhere.
+							</p>
+							<p>
+								<strong>Usage:</strong>
+								<code>advdiv n1 n2[ r]</code>
+								<ul>
+									<li><span class="mono">n1</span>&nbsp;&ndash;&nbsp;First number (numerator)</li>
+									<li><span class="mono">n2</span>&nbsp;&ndash;&nbsp;Second number (denominator)</li>
+									<li><span class="mono">r</span>&nbsp;&ndash;&nbsp;Recurring decimals of the first number (default <code class="lolight">0</code>)</li>
+									<li><span class="mono">rstr1</span>&nbsp;&ndash;&nbsp;String to be inserted before recursion (default <code class="lolight">"["</code>)</li>
+									<li><span class="mono">rstr2</span>&nbsp;&ndash;&nbsp;String to be inserted after recursion (default <code class="lolight">"]"</code>)</li>
+								</ul>
+							</p>
+						</section>
+					</div>
+				</div>
+				<div :class="collapsed('kirigami flutter www nwjs cordova')" @click="expand('kirigami flutter www nwjs cordova')">
+					<h2>GUI</h2>
+					<nav>
+						<button :class="activeSection('kirigami')" @click="select('kirigami')">Kirigami</button>
+						<button :class="activeSection('www')" @click="select('www')">Web</button>
+						<button :class="activeSection('nwjs')" @click="select('nwjs')">NW.js</button>
+						<button :class="activeSection('cordova')" @click="select('cordova')">Apache Cordova</button>
+						<button class="next" @click="next('kirigami www nwjs cordova')"><span x-text="nextLabel('kirigami www nwjs cordova', 'Kirigami;Web;NW.js;Apache Cordova')"></span><span class="material-icons-round">navigate_next</span></button>
+					</nav>
+					<div>
+						<section :class="activeSection('kirigami')">
+							<h3>Kirigami</h3>
+							<p>
+								Kirigami is a framework by KDE, which is based on Qt. This version looks best when used in a Qt&#x2010;based environment, like KDE Plasma or LXQt.
+								It is available for Linux as a Flatpak bundle, a Deb package or an archive with an installation script.
+							</p>
+							<p>
+								<strong>Installation instructions for Flatpak:</strong>
+								<ul>
+									<li>Flatpak is a universal package distribution system for Linux, this method should work on most desktop Linux systems</li>
+									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-Linux-Kirigami.flatpak/download">Advanced-Division-Linux-Kirigami.flatpak</a> file</li>
+									<li>Open terminal (often can be done with <kbd>Ctrl+Alt+T</kbd>)</li>
+									<li>Navigate to the directory, where the downloaded file is, e. g. by entering <code>cd ~/Downloads/</code> and pressing enter</li>
+									<li>Enter <code>flatpak install Advanced-Division-Linux-Kirigami.flatpak</code> and hit enter</li>
+									<li>If it doesn&rsquo;t work, make sure you have Flathub repository enabled by entering <code>flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo</code> and trying the previous command again</li>
+									<li>You can uninstall the application with <code>flatpak remove cz.ratajs.advdiv</code></li>
+								</ul>
+								<strong>Installation instructions for Deb package:</strong>
+								<ul>
+									<li>You can install the program with a deb package if you use Debian‐based OS, like Ubuntu, Pop!_OS, Linux Mint, elementary OS or KDE neon</li>
+									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-Linux-Kirigami.deb/download">Advanced-Division-Linux-Kirigami.deb</a> file</li>
+									<li>Enter <code>sudo dpkg -i Advanced-Division-Linux-Kirigami.deb</code> and hit enter</li>
+									<li>You can uninstall the package with <code>sudo dpkg -r advdiv</code> or by downloading the .tar.gz file and running the <code>uninstall.sh</code> script according to the instructions below if it doesn&rsquo;t work</li>
+								</ul>
+								<strong>Installation instructions for archive with installation script:</strong>
+								<ul>
+									<li>You can use this method if neither of the previous worked for you or you don&rsquo;t have a Debian‐based OS and don&rsquo;t want to use Flatpak, but there could be problems with KDE dependencies (if you use KDE apps or Plasma desktop, you will likely have all the required packages installed)</li>
+									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-Linux-Kirigami.tar.gz/download">Advanced-Division-Linux-Kirigami.tar.gz</a></li>
+									<li>Decompress the archive</li>
+									<li>Open terminal (often can be done with <kbd>Ctrl+Alt+T</kbd>)</li>
+									<li>Navigate to the decompressed folder, e. g. by entering <code>cd ~/Downloads/Advanced-Division</code> and pressing enter</li>
+									<li>Enter <code>chmod +x install.sh</code>, hit enter and then <code>./install.sh</code> and press enter again</li>
+									<li>Enter your root password if prompted</li>
+									<li>The app should be installed in a short time</li>
+									<li>To uninstall the app, run the <code>uninstall.sh</code> file the same way as <code>install.sh</code></li>
+									<li>You can replace <code>install.sh</code> with <code>install-noroot.sh</code> and <code>uninstall.sh</code> with <code>uninstall-noroot.sh</code> to install / uninstall the app only for the current user (doesn&rsquo;t require root priviliges)</li>
+								</ul>
+								See the <a href="https://invent.kde.org/ratajsk/advanced-division">repository</a>.
+							</p>
+							<img :src="screenshot('kirigami')" width="1120" height="879" alt="screenshot">
+						</section>
+						<section :class="activeSection('www')">
+							<h3>Web</h3>
+							<p>
+								This version is meant to be opened in a browser. The file is available online <a href="demo.html">here</a> and the offline version is <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division.html/download">here</a> for you to download.
+							</p>
+							<img src="./imgs/screenshot_www.png" width="845" height="700" alt="screenshot">
+						</section>
+						<section :class="activeSection('nwjs')">
+							<h3>NW.js</h3>
+							<p>
+								This version is also web&#x2010;based, but runs outside any web browser, there are versions for both Linux and Windows.
+							</p>
+							<p>
+								<strong>Installation instructions for Linux:</strong>
+								<ul>
+									<li>Download the  <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-NWjs-Linux.tar.gz/download">Advanced-Division-NWjs-Linux.tar.gz</a> or  <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-NWjs-Linux-offline.tar.gz/download">Advanced-Division-NWjs-Linux-offline.tar.gz</a> file</li>
+									<li>Decompress the archive</li>
+									<li>Open terminal (often can be done with <kbd>Ctrl+Alt+T</kbd>)</li>
+									<li>Navigate to the decompressed folder, e. g. by entering <code>cd ~/Downloads/Advanced-Division</code> and pressing enter</li>
+									<li>Enter <code>chmod +x install.sh</code>, hit enter and then <code>./install.sh</code> and press enter again</li>
+									<li>Enter your root password if prompted</li>
+									<li>The app should be installed in a short time (it can take longer with the non‐offline installer, as it needs to download NW.js unless already installed, the speed depends on your internet connection)</li>
+									<li>The uninstaller should be in the install directory (<code>/var/nw-apps/Advanced-Division/uninstall.sh</code>), you can execute it like the install script.</li>
+								</ul>
+								<strong>Installation instructions for Windows:</strong>
+								<ul>
+									<li>Download the  <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-NWjs.exe/download">Advanced-Division-NWjs.exe</a> file</li>
+									<li>Follow the instructions in the wizard</li>
+									<li>After finishing the wizard, the app should be installed</li>
+									<li>The uninstaller should be in the install directory</li>
+								</ul>
+							</p>
+						</section>
+						<section :class="activeSection('cordova')">
+							<h3>Apache Cordova</h3>
+							<p>
+								This version is web&#x2010;based as well, but this time it&lsquo;s for Android.
+							</p>
+							<p>
+								<strong>Installation instructions:</strong>
+								<ul>
+									<li>Download the  <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-Cordova.apk/download">Advanced-Division-Cordova.apk</a> file to your Android device</li>
+									<li>Try opening the file, allow installing apps from this source if prompted, more info  <a href="https://www.xda-developers.com/how-to-sideload-install-android-app-apk/#apkinstall">here</a></li>
+									<li>Once opened, click install</li>
+									<li>After the process ended, the app should be installed</li>
+									<li>You can uninstall it like other applications</li>
+								</ul>
+							</p>
+						</section>
+					</div>
+				</div>
+			</main>
+			<footer>
+				APIs, applications and website by RatajS
+			</footer>
+		</div>
+	</body>
+</html>

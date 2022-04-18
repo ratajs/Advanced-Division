@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Round');
+:root {
+	--color-light: #fafafa;
+	--color-dark: #222;
+
+	--color-bg-1: var(--color-light);
+	--color-bg-1-a: #fafafaaa;
+	--color-bg-2: #eee6ff;
+	--color-accent: #b39afd;
+	--color-accent-a: #b28afd33;
+	--color-highlight: var(--color-accent);
+	--color-text: var(--color-dark);
+	--color-link: #ef7b00;
+	--color-shadow: #aaa;
+}
+body.dark {
+	--color-bg-1: #000;
+	--color-bg-1-a: #000a;
+	--color-bg-2: var(--color-dark);
+	--color-highlight: #f6f49533;
+	--color-text: var(--color-light);
+	--color-link: #ffbe00;
+	--color-shadow: transparent;
+}
+body {
+	width: 100%;
+	margin: 0;
+	background-color: var(--color-bg-1);
+	color: var(--color-text);
+	font-family: 'Noto Sans', sans-serif;
+}
+#container {
+	box-sizing: border-box;
+	width: 95vw;
+	margin: 1rem 2.5vw;
+	padding: 1.5rem;
+	border-radius: .5rem;
+	background-color: var(--color-bg-2);
+	box-shadow: .2rem .4rem .8rem var(--color-shadow);
+}
+#theme-switcher {
+	position: absolute;
+	right: calc(2.5vw + 1.5rem);
+	top: 2.5rem;
+	width: 2rem;
+	height: 2rem;
+	border: none;
+	border-radius: 50%;
+	background-color: var(--color-bg-1-a);
+	color: var(--color-text);
+	font-family: 'Material Icons Round';
+	font-size: 1.5rem;
+	text-align: auto;
+	cursor: pointer;
+}
+h1 {
+	text-align: center;
+	font-size: 2rem;
+}
+main > div {
+	display: grid;
+	grid-template-rows: 5rem 5rem auto;
+	grid-template-columns: auto;
+	grid-template-areas: 'header' 'nav' 'content';
+	width: calc(95vw - 6rem);
+	margin: 1rem 0;
+	padding: 1.5rem;
+	border-radius: .5rem;
+	background-color: var(--color-bg-1-a);
+	overflow: hidden;
+}
+main > div.collapsed {
+	grid-template-rows: 1fr;
+	grid-template-areas: 'header';
+	padding: 0 1.5rem;
+	height: 5rem;
+	cursor: pointer;
+}
+main > div.collapsed nav, main > div.collapsed div {
+	display: none;
+	visibility: hidden;
+}
+main > div.collapsing {
+	animation: collapsing .3s ease;
+}
+main > div.expanding {
+	animation: collapsing .3s ease reverse;
+}
+main > div > div {
+	width: calc(95vw - 6rem);
+}
+h2 {
+	grid-area: header;
+	font-size: 1.5rem;
+}
+nav {
+	grid-area: nav;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+nav button {
+	padding: 1.5rem;
+	border: none;
+	border-radius: .5rem;
+	background-color: var(--color-accent-a);
+	color: var(--color-text);
+	font-weight: 600;
+	cursor: pointer;
+	transition: .3s;
+}
+nav button:hover, nav button.active {
+	background-color: var(--color-highlight);
+}
+nav button.active {
+	cursor: default;
+}
+nav button.next {
+	display: flex;
+	flex-direction: row;
+	background-color: transparent;
+	padding: 0;
+	margin-top: auto;
+
+	display: none;
+	visibility: hidden;
+}
+nav button.next span {
+	vertical-align: middle;
+}
+nav button.next .material-icons-round {
+	font-size: 1.5rem;
+}
+main > div > div {
+	grid-area: content;
+}
+section {
+	position: relative;
+	opacity: 0;
+	transition: .3s;
+}
+section.active {
+	opacity: 1;
+}
+section.hidden {
+	position: absolute;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+h3 {
+	font-size: 1.25rem;
+}
+pre, code, kbd, .mono {
+	font-family: 'Noto Sans Mono', monospace;
+}
+code {
+	display: inline-block;
+	max-width: 100%;
+	vertical-align: bottom;
+	overflow-x: auto;
+	white-space: nowrap;
+}
+section img {
+	display: block;
+	width: 50%;
+	height: auto;
+	max-width: 80rem;
+	margin: 0 auto;
+}
+body.dark .lolight span {
+	filter: invert(1);
+}
+a, a:visited {
+	color: var(--color-link);
+	font-weight: bold;
+	text-decoration: underline;
+}
+a:hover {
+	text-decoration: none;
+}
+footer {
+	margin-top: 3rem;
+	text-align: center;
+}
+
+@keyframes collapsing {
+	0% {
+		padding: 1.5rem;
+		height: var(--height);
+	}
+	100% {
+		padding: 0 1.5rem;
+		height: 5rem;
+	}
+}
+
+@media (max-width: 32rem) {
+	main > div {
+		grid-template-rows: 5rem auto 5rem;
+		grid-template-areas: 'header' 'content' 'nav';
+	}
+	nav > button {
+		display: none;
+		visibility: hidden;
+	}
+	nav > button.next {
+		display: block;
+		visibility: visible;
+	}
+}
