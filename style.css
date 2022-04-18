@@ -21,6 +21,7 @@ body.dark {
 	--color-bg-1-a: #000a;
 	--color-bg-2: var(--color-dark);
 	--color-bg-2-a: #222a;
+	--color-bg-3: var(--color-bg-1-a);
 	--color-highlight: #f6f49533;
 	--color-text: var(--color-light);
 	--color-link: #ffbe00;
@@ -210,6 +211,7 @@ footer {
 @media (max-width: 32rem) {
 	#container {
 		background-color: var(--color-bg-1);
+		box-shadow: none;
 		--color-bg-3: var(--color-bg-2-a);
 	}
 	main > div {
