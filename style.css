@@ -49,14 +49,20 @@ body {
 	top: 2.5rem;
 	width: 2rem;
 	height: 2rem;
+	padding: 0;
 	border: none;
 	border-radius: 50%;
 	background-color: var(--color-bg-3);
 	color: var(--color-text);
 	font-family: 'Material Icons Round';
 	font-size: 1.5rem;
-	text-align: auto;
+	text-align: center;
 	cursor: pointer;
+	transition: .3s;
+}
+#theme-switcher:hover {
+	background-color: var(--color-text);
+	color: var(--color-bg-3);
 }
 header img {
 	display: block;
