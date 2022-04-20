@@ -55,6 +55,7 @@ document.init = () => {
 		select(section) {
 			if(this.fading || this.collapsing || this.expanding || this.section==section)
 				return false;
+			makeStringKey();
 			this.fading = this.section;
 			this.section = "";
 			window.setTimeout(() => {
@@ -85,4 +86,12 @@ document.init = () => {
 			}, 300);
 		}
 	}));
+};
+
+function makeStringKey() {
+	var llnams = document.getElementsByClassName("ll-nam");
+	for(var x = 0; x < llnams.length; x++) {
+		if(llnams[x].innerText=="String")
+			llnams[x].className = "ll-key";
+	};
 };
