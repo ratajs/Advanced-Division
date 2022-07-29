@@ -123,8 +123,8 @@
 					<nav>
 						<button :class="activeSection('kirigami')" @click="select('kirigami')" @focus="select('kirigami')" tabindex="14">Kirigami</button>
 						<button :class="activeSection('flutter')" @click="select('flutter')" @focus="select('flutter')" tabindex="19">Flutter</button>
-						<button :class="activeSection('www')" @click="select('www')" @focus="select('www')" tabindex="26">Web</button>
-						<button :class="activeSection('nwjs')" @click="select('nwjs')" @focus="select('nwjs')" tabindex="29">NW.js</button>
+						<button :class="activeSection('www')" @click="select('www')" @focus="select('www')" tabindex="27">Web</button>
+						<button :class="activeSection('nwjs')" @click="select('nwjs')" @focus="select('nwjs')" tabindex="30">NW.js</button>
 						<button class="next" @click="next('kirigami www nwjs cordova')"><span x-text="nextLabel('kirigami www nwjs cordova', 'Kirigami;Web;NW.js;Apache Cordova')"></span><span class="material-icons-round">navigate_next</span></button>
 					</nav>
 					<div>
@@ -135,7 +135,7 @@
 								It is available for Linux as a Flatpak bundle, a Deb package or an archive with an installation script.
 							</p>
 							<p>
-								<strong>Installation instructions for Flatpak:</strong>
+								<strong>Installation instructions for Linux (Flatpak):</strong>
 								<ul>
 									<li>Flatpak is a universal package distribution system for Linux, this method should work on most desktop Linux systems</li>
 									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-Kirigami-Linux.flatpak/download" tabindex="15">Advanced-Division-Kirigami-Linux.flatpak</a> file</li>
@@ -145,20 +145,20 @@
 									<li>If it doesn&rsquo;t work, make sure you have Flathub repository enabled by entering <code>flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo</code> and trying the previous command again</li>
 									<li>You can uninstall the application with <code>flatpak remove cz.ratajs.advdiv</code></li>
 								</ul>
-								<strong>Installation instructions for Deb package:</strong>
+								<strong>Installation instructions for Linux (Deb package):</strong>
 								<ul>
 									<li>You can install the program with a deb package if you use Debian‐based OS, like Ubuntu, Pop!_OS, Linux Mint, elementary OS or KDE neon</li>
 									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-Kirigami-Linux.deb/download" tabindex="16">Advanced-Division-Kirigami-Linux.deb</a> file</li>
 									<li>Enter <code>sudo dpkg -i Advanced-Division-Kirigami-Linux.deb</code> and hit enter</li>
 									<li>You can uninstall the package with <code>sudo dpkg -r advdiv</code></li>
 								</ul>
-								<strong>Installation instructions for archive with installation script:</strong>
+								<strong>Installation instructions for Linux (archive with installation script):</strong>
 								<ul>
 									<li>You can use this method if neither of the previous worked for you or you don&rsquo;t have a Debian‐based OS and don&rsquo;t want to use Flatpak, but there could be problems with KDE dependencies (if you use KDE apps or Plasma desktop, you will likely have all the required packages installed)</li>
 									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-Kirigami-Linux.tar.gz/download" tabindex="17">Advanced-Division-Kirigami-Linux.tar.gz</a></li>
 									<li>Decompress the archive</li>
 									<li>Open terminal (often can be done with <kbd>Ctrl+Alt+T</kbd>)</li>
-									<li>Navigate to the decompressed folder, e. g. by entering <code>cd ~/Downloads/Advanced-Division</code> and pressing enter</li>
+									<li>Navigate to the decompressed folder, e. g. by entering <code>cd ~/Downloads/AdvDiv-Kirigami</code> and pressing enter</li>
 									<li>Enter <code>chmod +x install.sh</code>, hit enter and then <code>./install.sh</code> and press enter again</li>
 									<li>Enter your root password if prompted</li>
 									<li>The app should be installed in a short time</li>
@@ -200,20 +200,37 @@
 									<li>Enter <code>sudo dpkg -i Advanced-Division-Flutter-Linux.deb</code> and hit enter</li>
 									<li>You can uninstall the package with <code>sudo dpkg -r advdiv-flutter</code></li>
 								</ul>
+								<strong>Installation instructions for Linux (archive with installation script):</strong>
+								<ul>
+									<li>You can use this method if neither of the previous worked for you or you don&rsquo;t have a Debian‐based OS and don&rsquo;t want to use Flatpak, but there could be problems with KDE dependencies (if you use KDE apps or Plasma desktop, you will likely have all the required packages installed)</li>
+									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-Flutter-Linux.tar.gz/download" tabindex="24">Advanced-Division-Flutter-Linux.tar.gz</a></li>
+									<li>Decompress the archive</li>
+									<li>Open terminal (often can be done with <kbd>Ctrl+Alt+T</kbd>)</li>
+									<li>Navigate to the decompressed folder, e. g. by entering <code>cd ~/Downloads/AdvDiv-Flutter</code> and pressing enter</li>
+									<li>Enter <code>chmod +x install.sh</code>, hit enter and then <code>./install.sh</code> and press enter again</li>
+									<li>Enter your root password if prompted</li>
+									<li>The app should be installed in a short time</li>
+									<li>To uninstall the app, run the <code>uninstall.sh</code> file the same way as <code>install.sh</code></li>
+									<li>You can replace <code>install.sh</code> with <code>install-noroot.sh</code> and <code>uninstall.sh</code> with <code>uninstall-noroot.sh</code> to install / uninstall the app only for the current user (doesn&rsquo;t require root priviliges)</li>
+								</ul>
 								<strong>Installation instructions for Windows:</strong>
 								<ul>
-									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-Flutter-Windows.exe/download" tabindex="24">Advanced-Division-Flutter-Windows.exe</a> file</li>
+									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-Flutter-Windows.exe/download" tabindex="25">Advanced-Division-Flutter-Windows.exe</a> file</li>
 									<li>Follow the instructions in the wizard</li>
 									<li>After finishing the wizard, the app should be installed</li>
 									<li>The uninstaller should be in the install directory</li>
 								</ul>
-								See the <a href="https://github.com/ratajs/Advanced-Division-Flutter" tabindex="25">repository</a>.
+								See the <a href="https://github.com/ratajs/Advanced-Division-Flutter" tabindex="26">repository</a>.
 							</p>
+							<div class="image-grid">
+								<img src="./imgs/screenshot_flutter.png" width="1370" height="858" alt="screenshot">
+								<img src="./imgs/screenshot_flutter_phone.png" width="360" height="820" alt="screenshot">
+							</div>
 						</section>
 						<section :class="activeSection('www')" @focusin="select('www')">
 							<h3>Web</h3>
 							<p>
-								This version is meant to be opened in a browser. The file is available online <a href="demo.html" tabindex="27">here</a> and the offline version is <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division.html/download" tabindex="28">here</a> for you to download.
+								This version is meant to be opened in a browser. The file is available online <a href="demo.html" tabindex="28">here</a> and the offline version is <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division.html/download" tabindex="29">here</a> for you to download.
 							</p>
 							<img src="./imgs/screenshot_www.png" width="845" height="700" alt="screenshot">
 						</section>
@@ -225,7 +242,7 @@
 							<p>
 								<strong>Installation instructions for Linux:</strong>
 								<ul>
-									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-NWjs-Linux.tar.gz/download" tabindex="30">Advanced-Division-NWjs-Linux.tar.gz</a> or <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-NWjs-Linux-offline.tar.gz/download" tabindex="31">Advanced-Division-NWjs-Linux-offline.tar.gz</a> file</li>
+									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-NWjs-Linux.tar.gz/download" tabindex="31">Advanced-Division-NWjs-Linux.tar.gz</a> or <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-NWjs-Linux-offline.tar.gz/download" tabindex="21">Advanced-Division-NWjs-Linux-offline.tar.gz</a> file</li>
 									<li>Decompress the archive</li>
 									<li>Open terminal (often can be done with <kbd>Ctrl+Alt+T</kbd>)</li>
 									<li>Navigate to the decompressed folder, e. g. by entering <code>cd ~/Downloads/Advanced-Division</code> and pressing enter</li>
@@ -236,7 +253,7 @@
 								</ul>
 								<strong>Installation instructions for Windows:</strong>
 								<ul>
-									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-NWjs-Windows.exe/download" tabindex="32">Advanced-Division-NWjs-Windows.exe</a> file</li>
+									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-NWjs-Windows.exe/download" tabindex="33">Advanced-Division-NWjs-Windows.exe</a> file</li>
 									<li>Follow the instructions in the wizard</li>
 									<li>After finishing the wizard, the app should be installed</li>
 									<li>The uninstaller should be in the install directory</li>
@@ -248,7 +265,7 @@
 			</main>
 			<footer>
 				APIs, applications and website by RatajS<br />
-				Hosted by <a href="https://github.com/ratajs/Advanced-Division" target="_blank" tabindex="33" @keydown.tab="if(!$event.shiftKey) { $event.preventDefault(); return false; };">GitHub</a>
+				Hosted by <a href="https://github.com/ratajs/Advanced-Division" target="_blank" tabindex="34" @keydown.tab="if(!$event.shiftKey) { $event.preventDefault(); return false; };">GitHub</a>
 			</footer>
 		</div>
 	</body>
