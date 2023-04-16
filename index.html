@@ -118,14 +118,14 @@
 						</section>
 					</div>
 				</div>
-				<div :class="collapsed('kirigami flutter www nwjs cordova')" tabindex="13" @click="expand('kirigami flutter www nwjs cordova')" @focus="expand('kirigami flutter www nwjs cordova')">
+				<div :class="collapsed('kirigami flutter www nwjs')" tabindex="13" @click="expand('kirigami flutter www nwjs')" @focus="expand('kirigami flutter www nwjs')">
 					<h2>GUI</h2>
 					<nav>
 						<button :class="activeSection('kirigami')" @click="select('kirigami')" @focus="select('kirigami')" tabindex="14">Kirigami</button>
 						<button :class="activeSection('flutter')" @click="select('flutter')" @focus="select('flutter')" tabindex="19">Flutter</button>
 						<button :class="activeSection('www')" @click="select('www')" @focus="select('www')" tabindex="27">Web</button>
 						<button :class="activeSection('nwjs')" @click="select('nwjs')" @focus="select('nwjs')" tabindex="30">NW.js</button>
-						<button class="next" @click="next('kirigami www nwjs cordova')"><span x-text="nextLabel('kirigami www nwjs cordova', 'Kirigami;Web;NW.js;Apache Cordova')"></span><span class="material-icons-round">navigate_next</span></button>
+						<button class="next" @click="next('kirigami flutter www nwjs')"><span x-text="nextLabel('kirigami flutter www nwjs', 'Kirigami;Flutter;Web;NW.js')"></span><span class="material-icons-round">navigate_next</span></button>
 					</nav>
 					<div>
 						<section :class="activeSection('kirigami')" @focusin="select('kirigami')">
