@@ -19,7 +19,7 @@ h1 {
 	cursor: pointer;
 }
 main {
-	padding: 60px;
+	padding: 3.5rem;
 }
 #math {
 	display: grid;
@@ -104,10 +104,19 @@ em {
 	color: var(--error-color);
 }
 .computing {
-	background-color: transparent !important;
+	border-color: var(--highlight-color) !important;
 	color: var(--highlight-color) !important;
 	animation: blink .8s ease-in-out 0s infinite;
 	cursor: wait;
+}
+@media (max-width: 30rem) {
+	main {
+		padding: 0;
+	}
+	section {
+		max-width: initial;
+		grid-gap: 5vw;
+	}
 }
 @keyframes blink {
 	0% {
