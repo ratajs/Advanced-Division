@@ -62,13 +62,9 @@ button {
 	font-size: 100%;
 	transition: .1s;
 }
-button:hover, #math button:focus {
+button:hover, button:active, #math button:focus {
 	background-color: var(--mid-color);
 	color: var(--very-light-color);
-}
-button:active {
-	background-color: var(--highlight-color);
-	color: var(--very-dark-color);
 }
 section {
 	display: grid;
