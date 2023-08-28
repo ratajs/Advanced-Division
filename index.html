@@ -110,7 +110,7 @@
 							<p>
 								<strong>Usage:</strong>
 								<code class="lolight">
-									char *advdiv(char *n1, char *n2, char minch, char decch, String rch1, String rch2)
+									char *advdiv(char *n1, char *n2, char minch, char decch, char rch1, char rch2)
 								</code>
 								<ul>
 									<li><span class="mono">n1</span>&nbsp;&ndash;&nbsp;First number (numerator)</li>
@@ -136,11 +136,14 @@
 								<ul>
 									<li><span class="mono">n1</span>&nbsp;&ndash;&nbsp;First number (numerator)</li>
 									<li><span class="mono">n2</span>&nbsp;&ndash;&nbsp;Second number (denominator)</li>
-									<li><span class="mono">minstr</span>&nbsp;&ndash;&nbsp;String representing the minus sign (default <code class="lolight">-</code>)</li>
-									<li><span class="mono">decstr</span>&nbsp;&ndash;&nbsp;String separating the decimal digits (default <code class="lolight">.</code>)</li>
-									<li><span class="mono">rstr1</span>&nbsp;&ndash;&nbsp;String to be inserted before recursion (default <code class="lolight">"["</code>)</li>
-									<li><span class="mono">rstr2</span>&nbsp;&ndash;&nbsp;String to be inserted after recursion (default <code class="lolight">"]"</code> or <code class="lolight">""</code> when <span class="mono">rstr1</span> is specified)</li>
+									<li><span class="mono">minstr</span>&nbsp;&ndash;&nbsp;String (character) representing the minus sign (default <code class="lolight">"-"</code>)</li>
+									<li><span class="mono">decstr</span>&nbsp;&ndash;&nbsp;String (character) separating the decimal digits (default <code class="lolight">"."</code>)</li>
+									<li><span class="mono">rstr1</span>&nbsp;&ndash;&nbsp;String (character) to be inserted before recursion (default <code class="lolight">"["</code>)</li>
+									<li><span class="mono">rstr2</span>&nbsp;&ndash;&nbsp;String (character) to be inserted after recursion (default <code class="lolight">"]"</code> or <code class="lolight">""</code> when <span class="mono">rstr1</span> is specified)</li>
 								</ul>
+							</p>
+							<p>
+								Only the first characters (8-bit) are used from the last four arguments when using the C binary.
 							</p>
 						</section>
 					</div>
