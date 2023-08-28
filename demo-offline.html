@@ -29,14 +29,12 @@
 				cursor: pointer;
 			}
 			main {
-				padding: 60px;
+				padding: 3.5rem;
 			}
 			#math {
 				display: grid;
 				grid-template-columns: 3fr 1fr 3fr 2fr;
-				vertical-align: middle;
 				height: 3rem;
-				align-items: center;
 				justify-items: center;
 				text-align: center;
 				font-size: 200%;
@@ -44,42 +42,39 @@
 			#math span {
 				box-sizing: border-box;
 				display: inline-block;
-				height: 3rem;
 				width: 80%;
-				padding: .5rem;
-				background-color: var(--light-color);
-				color: var(--dark-color);
+				height: 3.5rem;
+				padding: .3rem 1.5rem;
+				border: .2rem solid var(--light-color);
+				color: var(--light-color);
 				cursor: text;
-				border-radius: .5rem;
+				border-radius: 1.5rem;
 				text-align: left;
 				font-family: 'Roboto Mono', monospace;
+				transition: .1s;
 			}
 			#math span.focus {
-				background-color: var(--very-light-color);
+				border-color: var(--very-light-color);
+				color: var(--very-light-color);
 			}
 			button {
 				box-sizing: border-box;
 				display: flex;
 				justify-content: center;
-				align-content: center;
-				background-color: var(--light-color);
-				color: var(--dark-color);
-				padding-top: .2rem;
-				border: none;
-				border-radius: .5rem;
-				width: 3rem;
-				height: 3rem;
+				width: 3.5rem;
+				height: 3.5rem;
+				border: .2rem solid var(--light-color);
+				border-radius: 50%;
+				background-color: transparent;
+				color: var(--light-color);
 				cursor: pointer;
 			/*font-family: 'Roboto Mono', monospace;*/
 				font-size: 100%;
+				transition: .1s;
 			}
-			button:hover, #math button:focus {
+			button:hover, button:active, #math button:focus {
 				background-color: var(--mid-color);
 				color: var(--very-light-color);
-			}
-			button:active {
-				background-color: var(--highlight-color);
-				color: var(--very-dark-color);
 			}
 			section {
 				display: grid;
@@ -96,8 +91,8 @@
 			#caret {
 				display: none;
 				position: absolute;
-				width: 3px;
-				height: 3rem;
+				width: .1rem;
+				height: 3.5rem;
 				background-color: var(--highlight-color);
 				animation: blink .8s ease-in-out 0s infinite;
 			}
@@ -115,10 +110,19 @@
 				color: var(--error-color);
 			}
 			.computing {
-				background-color: transparent !important;
+				border-color: var(--highlight-color) !important;
 				color: var(--highlight-color) !important;
 				animation: blink .8s ease-in-out 0s infinite;
 				cursor: wait;
+			}
+			@media (max-width: 30rem) {
+				main {
+					padding: 0;
+				}
+				section {
+					max-width: initial;
+					grid-gap: 5vw;
+				}
 			}
 			@keyframes blink {
 				0% {
@@ -173,279 +177,271 @@
 		</main>
 
 		<script type="text/javascript">
-			function advdiv(r,t,e,a,s){if(!a&&a!=="")a="[";if(!s&&s!="")s="]";if(t==0)return false;if(!e)e=0;var u=(parseFloat(r)<0?parseFloat(t)>=0:parseFloat(t)<0)?"-":"";r=Math.abs(r);t=Math.abs(t);e=Math.abs(e);var l=function(r){if(r.indexOf(".")>-1&&r.indexOf(".")==r.length-2)return r.replace(".","");if(r.indexOf(".")>-1)return r.split(".")[0]+r.split(".")[1].split("")[0]+"."+r.split(".")[1].slice(1);return r+"0"};var n=r.toString();var f=t.toString();while(f.indexOf(".")>-1){if(n.indexOf(".")<0){n+=e.toString()[0];if(e.toString().length>1)e=parseInt(e.toString().slice(1)+e.toString()[0])}else n=l(n);f=l(f)}r=parseFloat(n);t=parseInt(f);var p="";var i=n.split("");var I=n.split(".")[0].split("");var v=0;var h=0;var o=false;for(var M=0;M<I.length;M++){p+=Math.floor((parseInt(l(v.toString()))+parseInt(I[M]))/t).toString();v=parseInt(l(v.toString()))+parseInt(I[M])-t*Math.floor((parseInt(l(v.toString()))+parseInt(I[M]))/t)}if(p==""){p="0";M++}var F=M;p+=".";var c=new Array;var d=-1;var g;if(i.indexOf(".")<0)i.push(".");for(M++;M==M;M++){if(M>=i.length){d++;o=true;i.push(parseInt(e.toString().split("")[d%e.toString().length]))}h=parseInt(l(v.toString()))+parseInt(i[M])-t*Math.floor((parseInt(l(v.toString()))+parseInt(i[M]))/t);if(o){if(h==0&&e==0){p+=Math.floor((parseInt(l(v.toString()))+parseInt(i[M]))/t).toString();return u+p.replace(/^0+|0$/gm,"").replace(/^\./,"0.").replace(/\.$/,"")}for(g=0;g<c.length;g++){if(o&&c[g]==h&&g%e.toString().length==(d+1)%e.toString().length){p+=Math.floor((parseInt(l(v.toString()))+parseInt(i[M]))/t).toString();result=u+(p.slice(0,M-d+g)+"["+p.slice(M-d+g)+"]").replace(/^0+/gm,"").replace(/^\./,"0.");if(result[result.indexOf("[")-1]==result[result.indexOf("]")-1])result=result.slice(0,result.indexOf("[")-1)+"["+result[result.indexOf("[")-1]+result.slice(result.indexOf("[")+1,result.indexOf("]")-1)+"]";if(result.indexOf("]")==result.indexOf("[")+3&&result[result.indexOf("[")+1]==result[result.indexOf("[")+2])result=result.slice(0,result.indexOf("[")+2)+"]";return result.replace("[",a).replace("]",s)}}}p+=Math.floor((parseInt(l(v.toString()))+parseInt(i[M]))/t).toString();if(o)c.push(v);v=h}}
+			function advdiv(r,e,t,a,f,n){var i=false,p=false;var s=0,I=0,d=-1,u,g,$;var v="",h;var x;var E=[];var R;var M,l,o,w,y;var c,b,j;var k;var m;RegExp.escape=r=>r.replace(/[-\\^$*+?.()|[\]{}]/g,"\\$&");if(typeof t=="undefined")t="-";if(typeof a=="undefined")a=".";if(typeof f=="undefined"){f="[";n="]"}if(typeof n=="undefined")n="";if(r.length==0||e.length==0||/^\d*$/.test(t)||/^\d*$/.test(a)||/^\d*$/.test(f)||/^\d+$/.test(n))return false;m=new RegExp("^("+RegExp.escape(t)+")?\\d*("+RegExp.escape(a)+"\\d*("+RegExp.escape(f)+"\\d*"+RegExp.escape(n)+")?)?$");if(!m.test(r)||!m.test(e))return false;if(r.slice(0,t.length)==t){r=r.slice(t.length);i=true}if(e.slice(0,t.length)==t){e=e.slice(t.length);i=!i}c=i?t:"";r=r.replace(a,".");e=e.replace(a,".");if(r[0]==".")r="0"+r;if(e[0]==".")e="0"+e;r1=r.indexOf(f)>-1?(new RegExp(RegExp.escape(f)+"(.+)"+RegExp.escape(n)).exec(r.slice(r.indexOf(".")+1))||["0","0"])[1]:"0";if(r1!="0")r=r.slice(0,r.indexOf(".")+r.slice(r.indexOf(".")+1).indexOf(f)+1);r=r.replace(/^0+/,"0").replace(r1=="0"?/\.0*$/:/\.*$/,"");r2=e.indexOf(f)>-1?(new RegExp(RegExp.escape(f)+"(.+)"+RegExp.escape(n)).exec(e.slice(e.indexOf(".")+1))||["0","0"])[1]:"0";if(r2!="0")e=e.slice(0,e.indexOf(".")+e.slice(e.indexOf(".")+1).indexOf(f)+1);e=e.replace(/^0+/,"0").replace(r2=="0"?/\.0*$/:/\.*$/,"");if(e=="0"&&/^[0\.]+$/.test(r2))return false;if(r=="0"&&/^[0\.]+$/.test(r1))return"0";if(r2!="0"){b=r.replace(".","");j=e.replace(".","");l=parseInt(b+r1)-parseInt(b);o=parseInt(j+r2)-parseInt(j);if(r.indexOf(".")>-1)w=Math.pow(10,r.length-r.indexOf(".")-1+r1.toString().length)-Math.pow(10,r.length-r.indexOf(".")-1);else w=Math.pow(10,r1.toString().length)-1;if(e.indexOf(".")>-1)y=Math.pow(10,e.length-e.indexOf(".")-1+r2.toString().length)-Math.pow(10,e.length-e.indexOf(".")-1);else y=Math.pow(10,r2.toString().length)-1;return c+advdiv((l*y).toString(),(w*o).toString(),t,a,f,n)}x=function(r){if(r.indexOf(".")>-1&&r.indexOf(".")==r.length-2)return r.replace(".","");if(r.indexOf(".")>-1)return r.split(".")[0]+r.split(".")[1].split("")[0]+"."+r.split(".")[1].slice(1);return r+"0"};while(e.indexOf(".")>-1){if(r.indexOf(".")<0){r+=r1.toString()[0];if(r1.toString().length>1)r1=parseInt(r1.toString().slice(1)+r1.toString()[0])}else r=x(r);e=x(e)}M=parseInt(e);R=r.split("");k=r.split(".")[0].split("");for(u=0;u<k.length;u++){$=Math.floor((parseInt(x(s.toString()))+parseInt(k[u]))/M);v+=$.toString();s=parseInt(x(s.toString()))+parseInt(k[u])-M*$}if(v==""){v="0";u++}v+=".";if(R.indexOf(".")<0)R.push(".");for(u++;;u++){if(u>=R.length){d++;p=true;R.push(parseInt(r1.toString().split("")[d%r1.toString().length]))}I=parseInt(x(s.toString()))+parseInt(R[u])-M*Math.floor((parseInt(x(s.toString()))+parseInt(R[u]))/M);if(p){if(I==0&&r1==0){v+=Math.floor((parseInt(x(s.toString()))+parseInt(R[u]))/M).toString();return c+v.replace(/^0+|0$/g,"").replace(/^\./,"0.").replace(/\.$/,"").replace(".",a)}for(g=0;g<E.length;g++){if(p&&E[g]==I&&g%r1.toString().length==(d+1)%r1.toString().length){v+=Math.floor((parseInt(x(s.toString()))+parseInt(R[u]))/M).toString();h=(v.slice(0,u-d+g)+"["+v.slice(u-d+g)+"]").replace(/^0+/g,"").replace(/^\./,"0.");if(h[h.indexOf("[")-1]==h[h.indexOf("]")-1])h=h.slice(0,h.indexOf("[")-1)+"["+h[h.indexOf("[")-1]+h.slice(h.indexOf("[")+1,h.indexOf("]")-1)+"]";if(h.indexOf("]")==h.indexOf("[")+3&&h[h.indexOf("[")+1]==h[h.indexOf("[")+2])h=h.slice(0,h.indexOf("[")+2)+"]";return c+h.replace(/[.[\]]/g,r=>r[0]=="."?a:r[0]=="["?f:n)}}}v+=Math.floor((parseInt(x(s.toString()))+parseInt(R[u]))/M).toString();if(p)E.push(s);s=I}}
 			var keyWhitelist =
-			[
-				"0",
-				"1",
-				"2",
-				"3",
-				"4",
-				"5",
-				"6",
-				"7",
-				"8",
-				"9",
-				".",
-				",",
-				"r",
-				"/",
-				"∶",
-				"∕",
-				"=",
-				"ArrowLeft",
-				"ArrowRight",
-				"Home",
-				"End",
-				"Backspace",
-				"Delete",
-				"Cancel",
-				"Tab",
-				"Enter",
-				"Escape"
-			];
-			window.caret = 0;
-			function keydown(event) {
-        if(keyWhitelist.indexOf(event.key) < 0)
-					return true;
-				if(event.preventDefault)
-					event.preventDefault();
-				if(document.getElementsByClassName("focus").length < 1)  {
-					document.getElementById("n1").className = "focus";
-					window.caret = document.getElementById("n1").innerText.length;
-					showCaret();
-				};
-				var ae = document.getElementsByClassName("focus")[0];
-				if(ae.id=="n2" && event.key=="r") {
-					alert("Not yet supported");
-					return false;
-				};
-				if(window.caret < 0)
-					window.caret = 0;
-				if(window.caret > ae.innerText.length)
-					window.caret = ae.innerText.length;
-				switch(event.key) {
-					case "0":
-						addCharacter("0"); window.caret+= 1; break;
-					case "1":
-						addCharacter("1"); window.caret+= 1; break;
-					case "2":
-						addCharacter("2"); window.caret+= 1; break;
-					case "3":
-						addCharacter("3"); window.caret+= 1; break;
-					case "4":
-						addCharacter("4"); window.caret+= 1; break;
-					case "5":
-						addCharacter("5"); window.caret+= 1; break;
-					case "6":
-						addCharacter("6"); window.caret+= 1; break;
-					case "7":
-						addCharacter("7"); window.caret+= 1; break;
-					case "8":
-						addCharacter("8"); window.caret+= 1; break;
-					case "9":
-						addCharacter("9"); window.caret+= 1; break;
-					case ".":
-						(ae.innerHTML.indexOf(".") < 0) ? (
-							addCharacter(".")
-						) : null; window.caret+= 1; break;
-					case ",":
-						(ae.innerHTML.indexOf(".") < 0) ? (
-							addCharacter(".")
-						) : null; window.caret+= 1; break;
-					case "r":
-						ae.innerHTML =
+				[
+					"0",
+					"1",
+					"2",
+					"3",
+					"4",
+					"5",
+					"6",
+					"7",
+					"8",
+					"9",
+					".",
+					",",
+					"r",
+					"/",
+					"∶",
+					"∕",
+					"=",
+					"ArrowLeft",
+					"ArrowRight",
+					"Home",
+					"End",
+					"Backspace",
+					"Delete",
+					"Cancel",
+					"Tab",
+					"Enter",
+					"Escape"
+				];
+				window.caret = 0;
+				function keydown(event) {
+					if(keyWhitelist.indexOf(event.key) < 0)
+						return true;
+					if(event.preventDefault)
+						event.preventDefault();
+					if(document.getElementsByClassName("focus").length < 1)  {
+						document.getElementById("n1").className = "focus";
+						window.caret = document.getElementById("n1").innerText.length;
+						showCaret();
+					};
+					var ae = document.getElementsByClassName("focus")[0];
+					if(window.caret < 0)
+						window.caret = 0;
+					if(window.caret > ae.innerText.length)
+						window.caret = ae.innerText.length;
+					switch(event.key) {
+						case "0":
+							addCharacter("0"); window.caret+= 1; break;
+						case "1":
+							addCharacter("1"); window.caret+= 1; break;
+						case "2":
+							addCharacter("2"); window.caret+= 1; break;
+						case "3":
+							addCharacter("3"); window.caret+= 1; break;
+						case "4":
+							addCharacter("4"); window.caret+= 1; break;
+						case "5":
+							addCharacter("5"); window.caret+= 1; break;
+						case "6":
+							addCharacter("6"); window.caret+= 1; break;
+						case "7":
+							addCharacter("7"); window.caret+= 1; break;
+						case "8":
+							addCharacter("8"); window.caret+= 1; break;
+						case "9":
+							addCharacter("9"); window.caret+= 1; break;
+						case ".":
+							(ae.innerHTML.indexOf(".") < 0) ? (
+								addCharacter(".")
+							) : null; window.caret+= 1; break;
+						case ",":
+							(ae.innerHTML.indexOf(".") < 0) ? (
+								addCharacter(".")
+							) : null; window.caret+= 1; break;
+						case "r":
+							ae.innerHTML =
 							(ae.children.length > 0) ? (
 								ae.innerHTML.replace("<em>", "").replace("</em>", "")
 							) : (
 								(ae.innerHTML.indexOf(".") > -1 && ae.innerHTML.indexOf(".") < window.caret) ? (
 									ae.innerHTML.slice(0, window.caret) + "<em>" +
-										((window.caret < ae.innerHTML.length) ? (
-											ae.innerHTML.slice(window.caret)
-										) : (
-											""
-										)
+									((window.caret < ae.innerHTML.length) ? (
+										ae.innerHTML.slice(window.caret)
+									) : (
+										""
+									)
 									) + "</em>"
 								) : ae.innerHTML
 							)
-						break;
-					case "ArrowLeft":
-						(window.caret > 0) ? (window.caret-= 1) : null; break;
-					case "ArrowRight":
-						(window.caret < ae.innerText.length) ? (window.caret+= 1) : null; break;
-					case "Home":
-						window.caret = 0; break;
-					case "End":
-						window.caret = ae.innerText.length; break;
-					case "Backspace":
-						(ae.children.length > 0 && (ae.childNodes.length < 2 || ae.childNodes[0].data.length < window.caret)) ? (
-							ae.children[0].innerHTML =
+							break;
+						case "ArrowLeft":
+							(window.caret > 0) ? (window.caret-= 1) : null; break;
+						case "ArrowRight":
+							(window.caret < ae.innerText.length) ? (window.caret+= 1) : null; break;
+						case "Home":
+							window.caret = 0; break;
+						case "End":
+							window.caret = ae.innerText.length; break;
+						case "Backspace":
+							(ae.children.length > 0 && (ae.childNodes.length < 2 || ae.childNodes[0].data.length < window.caret)) ? (
+								ae.children[0].innerHTML =
 								ae.children[0].innerHTML.slice(0, window.caret - 1 - ((ae.childNodes.length < 2) ? 0 : ae.childNodes[0].data.length))
 								+
 								ae.children[0].innerHTML.slice(window.caret - ((ae.childNodes.length < 2) ? 0 : ae.childNodes[0].data.length))
-						) : (
-							(ae.innerHTML.length > 0 && window.caret > 0) ? (
-								ae.innerHTML =
+							) : (
+								(ae.innerHTML.length > 0 && window.caret > 0) ? (
+									ae.innerHTML =
 									ae.innerHTML.slice(0, window.caret - 1)
 									+
 									ae.innerHTML.slice(window.caret)
-							) : (
-								window.caret+= 1
-							)
-						); window.caret-= 1; break;
-					case "Delete":
-						(ae.children.length > 0 && (ae.childNodes.length < 2 || ae.childNodes[0].data.length <= window.caret)) ? (
-							ae.children[0].innerHTML =
+								) : (
+									window.caret+= 1
+								)
+							); window.caret-= 1; break;
+						case "Delete":
+							(ae.children.length > 0 && (ae.childNodes.length < 2 || ae.childNodes[0].data.length <= window.caret)) ? (
+								ae.children[0].innerHTML =
 								ae.children[0].innerHTML.slice(0, window.caret - ((ae.childNodes.length < 2) ? 0 : ae.childNodes[0].data.length))
 								+
 								ae.children[0].innerHTML.slice(window.caret + 1 - ((ae.childNodes.length < 2) ? 0 : ae.childNodes[0].data.length))
-						) : (
-							(ae.innerHTML.length > 0 && window.caret <= ae.innerHTML.length) ? (
-								ae.innerHTML =
+							) : (
+								(ae.innerHTML.length > 0 && window.caret <= ae.innerHTML.length) ? (
+									ae.innerHTML =
 									ae.innerHTML.slice(0, window.caret)
 									+
 									ae.innerHTML.slice(window.caret + 1)
-							) : null
-						); break;
-					case "Cancel":
-						ae.innerHTML = "";
+								) : null
+							); break;
+						case "Cancel":
+							ae.innerHTML = "";
+							window.caret = 0;
+							break;
+						case "Tab":
+						case "/":
+						case "∶":
+						case "∕":
+							document.getElementById("n1").className = (document.getElementById("n1").className=="focus") ? "" : "focus";
+							document.getElementById("n2").className = (document.getElementById("n2").className=="focus") ? "" : "focus";
+							window.caret = document.getElementsByClassName("focus")[0].innerText.length;
+							break;
+						case "=":
+						case "Enter":
+							submit(); break;
+						case "Escape":
+							ae.className = ""; window.caret = 0; document.getElementById("caret").style.display = "none"; break;
+					};
+					if(ae.children.length > 0 && ae.children[0].innerHTML.length < 1 && event.key!="r")
+						ae.children[0].remove();
+					if(window.caret < 0)
 						window.caret = 0;
-						break;
-					case "Tab":
-					case "/":
-					case "∶":
-					case "∕":
-						document.getElementById("n1").className = (document.getElementById("n1").className=="focus") ? "" : "focus";
-						document.getElementById("n2").className = (document.getElementById("n2").className=="focus") ? "" : "focus";
-						window.caret = document.getElementsByClassName("focus")[0].innerText.length;
-						break;
-					case "=":
-					case "Enter":
-						submit(); break;
-					case "Escape":
-						ae.className = ""; window.caret = 0; document.getElementById("caret").style.display = "none"; break;
+					if(window.caret > ae.innerHTML.length)
+						window.caret = ae.innerHTML.length;
+					if(document.getElementsByClassName("focus").length > 0)
+						showCaret();
+					if(ae.children.length > 0 && ae.innerText.indexOf(".") < 0)
+						ae.innerHTML = ae.innerHTML.replace("<em>", "").replace("</em>", "");
+					return false;
 				};
-				if(ae.children.length > 0 && ae.children[0].innerHTML.length < 1 && event.key!="r")
-					ae.children[0].remove();
-				if(window.caret < 0)
+				function mousedown(event) {
+					event.preventDefault();
+					keydown({ key: this.name });
+					return false;
+				};
+				function click(event) {
+					event.preventDefault();
+					if(this.className=="focus" || event.target.className=="numpadkey") {
+						event.stopPropagation();
+						if(this.className=="focus") {
+							var pos = Math.round((event.clientX - this.offsetLeft - parseFloat(getComputedStyle(this).paddingLeft)) / window.monospaceWidth);
+							if(pos > this.innerText.length)
+								window.caret = this.innerText.length;
+							else
+								window.caret = pos;
+							showCaret();
+						};
+						return false;
+					};
+					document.getElementById("caret").style.display = "none";
+					if(document.getElementsByClassName("focus").length > 0)
+						document.getElementsByClassName("focus")[0].className = "";
 					window.caret = 0;
-				if(window.caret > ae.innerHTML.length)
-					window.caret = ae.innerHTML.length;
-				if(document.getElementsByClassName("focus").length > 0)
-					showCaret();
-				if(ae.children.length > 0 && ae.innerText.indexOf(".") < 0)
-					ae.innerHTML = ae.innerHTML.replace("<em>", "").replace("</em>", "");
-				return false;
-			};
-			function mousedown(event) {
-				event.preventDefault();
-				keydown({ key: this.name });
-				return false;
-			};
-			function click(event) {
-				event.preventDefault();
-				if(this.className=="focus" || event.target.className=="numpadkey") {
-					event.stopPropagation();
-					if(this.className=="focus") {
+					if(this.tagName.toLowerCase()=="span") {
+						this.className = "focus";
 						var pos = Math.round((event.clientX - this.offsetLeft - parseFloat(getComputedStyle(this).paddingLeft)) / window.monospaceWidth);
 						if(pos > this.innerText.length)
 							window.caret = this.innerText.length;
 						else
 							window.caret = pos;
 						showCaret();
+						event.stopPropagation();
 					};
 					return false;
 				};
-				document.getElementById("caret").style.display = "none";
-				if(document.getElementsByClassName("focus").length > 0)
-					document.getElementsByClassName("focus")[0].className = "";
-				window.caret = 0;
-				if(this.tagName.toLowerCase()=="span") {
-					this.className = "focus";
-					var pos = Math.round((event.clientX - this.offsetLeft - parseFloat(getComputedStyle(this).paddingLeft)) / window.monospaceWidth);
-					if(pos > this.innerText.length)
-						window.caret = this.innerText.length;
+				function addCharacter(char) {
+					var ae = document.getElementsByClassName("focus")[0];
+					if(ae.children.length < 1 || ae.childNodes.length < 2 || window.caret < ae.childNodes[0].length || (window.caret==ae.childNodes[0].length && ae.children[0].innerHTML.length > 0))
+						ae.innerHTML = ae.innerHTML.slice(0, window.caret) + char + ae.innerHTML.slice(window.caret);
+					else if(ae.children[0].innerHTML.length < 1 && window.caret >= ae.childNodes[0].length)
+						ae.innerHTML = ae.childNodes[0].data + "<em>" + char + "</em>";
 					else
-						window.caret = pos;
-					showCaret();
-					event.stopPropagation();
+						ae.innerHTML = ae.childNodes[0].data + "<em>" + ae.children[0].innerHTML.slice(0, window.caret - ae.childNodes[0].length) + char + ae.children[0].innerHTML.slice(window.caret - ae.childNodes[0].length) + "</em>";
 				};
-				return false;
-			};
-			function addCharacter(char) {
-				var ae = document.getElementsByClassName("focus")[0];
-				if(ae.children.length < 1 || ae.childNodes.length < 2 || window.caret < ae.childNodes[0].length || (window.caret==ae.childNodes[0].length && ae.children[0].innerHTML.length > 0))
-					ae.innerHTML = ae.innerHTML.slice(0, window.caret) + char + ae.innerHTML.slice(window.caret);
-				else if(ae.children[0].innerHTML.length < 1 && window.caret >= ae.childNodes[0].length)
-					ae.innerHTML = ae.childNodes[0].data + "<em>" + char + "</em>";
-				else
-					ae.innerHTML = ae.childNodes[0].data + "<em>" + ae.children[0].innerHTML.slice(0, window.caret - ae.childNodes[0].length) + char + ae.children[0].innerHTML.slice(window.caret - ae.childNodes[0].length) + "</em>";
-			};
-			function showCaret() {
-				var caret = document.getElementById("caret");
-				var ae = document.getElementsByClassName("focus")[0];
-				if(!ae)
-					ae = document.getElementById("n1");
-				caret.style.display = "block";
-				caret.style.top = document.getElementById("math").offsetTop + "px";
-				caret.style.left = (ae.offsetLeft + parseFloat(getComputedStyle(ae).paddingLeft) + (window.caret * window.monospaceWidth)) + "px";
-			};
-			function submit() {
-				if(document.getElementById("n1").innerText.indexOf(".")==0)
-					document.getElementById("n1").innerHTML = "0" + document.getElementById("n1").innerHTML;
-				if(document.getElementById("n2").innerText.indexOf(".")==0)
-					document.getElementById("n2").innerHTML = "0" + document.getElementById("n2").innerHTML;
-				document.getElementById("result").className = "";
-				if(document.getElementById("n2").innerText.length < 1 || parseFloat(document.getElementById("n2").innerText)==0) {
-					document.getElementById("result").innerHTML = "Division by zero!";
-					document.getElementById("result").className = "error";
-				}
-				else if(document.getElementById("n1").innerText.length < 1 || parseFloat(document.getElementById("n1").innerText)==0 || (document.getElementById("n1").children.length > 0 && document.getElementById("n1").childNodes.length < 2))
-					document.getElementById("result").innerHTML = 0;
-				else {
-					if(document.getElementById("n1").children.length < 1 || document.getElementById("n1").children[0].innerText.length < 1)
-						var r = 0;
-					else
-						var r = document.getElementById("n1").children[0].innerText;
-					document.getElementsByTagName("button")[0].className = "computing";
-					window.setTimeout(function() {
-						document.getElementById("result").innerHTML = advdiv(parseFloat(document.getElementById("n1").childNodes[0].data), parseFloat(document.getElementById("n2").innerText), r, "<em>", "</em>");
-						while(true) {
-							if(document.getElementById("result").innerHTML.length > 0) {
-								document.getElementsByTagName("button")[0].className = "";
-								break;
+				function showCaret() {
+					var caret = document.getElementById("caret");
+					var ae = document.getElementsByClassName("focus")[0];
+					if(!ae)
+						ae = document.getElementById("n1");
+					caret.style.display = "block";
+					caret.style.top = document.getElementById("math").offsetTop + "px";
+					caret.style.left = (ae.offsetLeft + parseFloat(getComputedStyle(ae).paddingLeft) + (window.caret * window.monospaceWidth)) + "px";
+				};
+				function submit() {
+					if(document.getElementById("n1").innerText.indexOf(".")==0)
+						document.getElementById("n1").innerHTML = "0" + document.getElementById("n1").innerHTML;
+					if(document.getElementById("n2").innerText.indexOf(".")==0)
+						document.getElementById("n2").innerHTML = "0" + document.getElementById("n2").innerHTML;
+					document.getElementById("result").className = "";
+					if(document.getElementById("n2").innerText.length < 1 || parseFloat(document.getElementById("n2").innerText)==0) {
+						document.getElementById("result").innerHTML = "Division by zero!";
+						document.getElementById("result").className = "error";
+					}
+					else if(document.getElementById("n1").innerText.length < 1 || parseFloat(document.getElementById("n1").innerText)==0 || (document.getElementById("n1").children.length > 0 && document.getElementById("n1").childNodes.length < 2))
+						document.getElementById("result").innerHTML = 0;
+					else {
+						document.getElementsByTagName("button")[0].className = "computing";
+						window.setTimeout(function() {
+							document.getElementById("result").innerHTML = advdiv(document.getElementById("n1").innerHTML, document.getElementById("n2").innerHTML, "−", ".", "<em>", "</em>");
+							while(true) {
+								if(document.getElementById("result").innerHTML.length > 0) {
+									document.getElementsByTagName("button")[0].className = "";
+									break;
+								};
 							};
-						};
-					}, 100);
+						}, 100);
+					};
 				};
-			};
-			window.onresize = function(event) {
-				var span = document.createElement("span");
-				span.style.fontFamily = "'Roboto Mono', monospace";
-				span.style.fontSize = "200%";
-				span.style.opacity = "0";
-				while(span.innerHTML.length < 1000) {
-					span.innerHTML+= "0";
+				window.onresize = function(event) {
+					var span = document.createElement("span");
+					span.style.fontFamily = "'Roboto Mono', monospace";
+					span.style.fontSize = "200%";
+					span.style.opacity = "0";
+					while(span.innerHTML.length < 1000) {
+						span.innerHTML+= "0";
+					};
+					document.body.appendChild(span);
+					window.monospaceWidth = span.offsetWidth / 1000;
+					span.remove();
+					if(document.getElementsByClassName("focus").length > 0)
+						showCaret();
 				};
-				document.body.appendChild(span);
-				window.monospaceWidth = span.offsetWidth / 1000;
-				span.remove();
-				if(document.getElementsByClassName("focus").length > 0)
-					showCaret();
-			};
-			document.body.onload = function(event) {
-				window.onkeydown = keydown;
-				document.getElementsByTagName("span")[0].onclick = click;
-				document.getElementsByTagName("span")[1].onclick = click;
-				document.body.onclick = click;
-				var i = 0;
-				var numpadkeys = document.getElementsByClassName("numpadkey");
-				while(i < numpadkeys.length) {
-					numpadkeys[i].onmousedown = mousedown;
-					i++;
+				document.body.onload = function(event) {
+					window.onkeydown = keydown;
+					document.getElementsByTagName("span")[0].onclick = click;
+					document.getElementsByTagName("span")[1].onclick = click;
+					document.body.onclick = click;
+					var x = 0;
+					var numpadkeys = document.getElementsByClassName("numpadkey");
+					while(x < numpadkeys.length) {
+						numpadkeys[x].onmousedown = mousedown;
+						x++;
+					};
+					window.onresize();
 				};
-				window.onresize();
-			};
 		</script>
 	</body>
 </html>

@@ -45,8 +45,8 @@
 								<ul>
 									<li><span class="mono">n1</span>&nbsp;&ndash;&nbsp;First number (numerator)</li>
 									<li><span class="mono">n2</span>&nbsp;&ndash;&nbsp;Second number (denominator)</li>
-									<li><span class="mono">minstr</span>&nbsp;&ndash;&nbsp;String representing the minus sign (default <code class="lolight">-</code>)</li>
-									<li><span class="mono">decstr</span>&nbsp;&ndash;&nbsp;String separating the decimal digits (default <code class="lolight">.</code>)</li>
+									<li><span class="mono">minstr</span>&nbsp;&ndash;&nbsp;String representing the minus sign (default <code class="lolight">"-"</code>)</li>
+									<li><span class="mono">decstr</span>&nbsp;&ndash;&nbsp;String separating the decimal digits (default <code class="lolight">"."</code>)</li>
 									<li><span class="mono">rstr1</span>&nbsp;&ndash;&nbsp;String to be inserted before recursion (default <code class="lolight">"["</code>)</li>
 									<li><span class="mono">rstr2</span>&nbsp;&ndash;&nbsp;String to be inserted after recursion (default <code class="lolight">"]"</code>)</li>
 								</ul>
@@ -56,7 +56,7 @@
 						<section :class="activeSection('py')" @focusin="select('py')">
 							<h3>Python</h3>
 							<p>
-								Download the <a href="https://github.com/ratajs/Advanced-Division-py/blob/1.1/AdvDiv.py" target="_blank" tabindex="4">AdvDiv.py</a> file and import it with:
+								Download the <a href="https://github.com/ratajs/Advanced-Division-py/blob/1.2/AdvDiv.py" target="_blank" tabindex="4">AdvDiv.py</a> file and import it with:
 							</p>
 							<code class="lolight">
 								import AdvDiv
@@ -69,8 +69,8 @@
 								<ul>
 									<li><span class="mono">n1</span>&nbsp;&ndash;&nbsp;First number (numerator)</li>
 									<li><span class="mono">n2</span>&nbsp;&ndash;&nbsp;Second number (denominator)</li>
-									<li><span class="mono">minstr</span>&nbsp;&ndash;&nbsp;String representing the minus sign (default <code class="lolight">-</code>)</li>
-									<li><span class="mono">decstr</span>&nbsp;&ndash;&nbsp;String separating the decimal digits (default <code class="lolight">.</code>)</li>
+									<li><span class="mono">minstr</span>&nbsp;&ndash;&nbsp;String representing the minus sign (default <code class="lolight">"-"</code>)</li>
+									<li><span class="mono">decstr</span>&nbsp;&ndash;&nbsp;String separating the decimal digits (default <code class="lolight">"."</code>)</li>
 									<li><span class="mono">rstr1</span>&nbsp;&ndash;&nbsp;String to be inserted before recursion (default <code class="lolight">"["</code>)</li>
 									<li><span class="mono">rstr2</span>&nbsp;&ndash;&nbsp;String to be inserted after recursion (default <code class="lolight">"]"</code>)</li>
 								</ul>
@@ -80,7 +80,7 @@
 						<section :class="activeSection('dart')" @focusin="select('dart')">
 							<h3>Dart</h3>
 							<p>
-								Download the <a href="https://github.com/ratajs/Advanced-Division-dart/blob/1.1/AdvDiv.dart" target="_blank" tabindex="7">AdvDiv.dart</a> file and import it with:
+								Download the <a href="https://github.com/ratajs/Advanced-Division-dart/blob/1.2/AdvDiv.dart" target="_blank" tabindex="7">AdvDiv.dart</a> file and import it with:
 							</p>
 							<code class="lolight">
 								import 'AdvDiv.dart';
@@ -93,12 +93,34 @@
 								<ul>
 									<li><span class="mono">n1</span>&nbsp;&ndash;&nbsp;First number (numerator)</li>
 									<li><span class="mono">n2</span>&nbsp;&ndash;&nbsp;Second number (denominator)</li>
-									<li><span class="mono">minstr</span>&nbsp;&ndash;&nbsp;String representing the minus sign (default <code class="lolight">-</code>)</li>
-									<li><span class="mono">decstr</span>&nbsp;&ndash;&nbsp;String separating the decimal digits (default <code class="lolight">.</code>)</li>
+									<li><span class="mono">minstr</span>&nbsp;&ndash;&nbsp;String representing the minus sign (default <code class="lolight">"-"</code>)</li>
+									<li><span class="mono">decstr</span>&nbsp;&ndash;&nbsp;String separating the decimal digits (default <code class="lolight">"."</code>)</li>
 									<li><span class="mono">rstr1</span>&nbsp;&ndash;&nbsp;String to be inserted before recursion (default <code class="lolight">"["</code>)</li>
 									<li><span class="mono">rstr2</span>&nbsp;&ndash;&nbsp;String to be inserted after recursion (default <code class="lolight">"]"</code>)</li>
 								</ul>
 								See the <a href="https://github.com/ratajs/Advanced-Division-dart/" tabindex="8">repository</a>.
+							</p>
+						</section>
+						<section :class="activeSection('dart')" @focusin="select('dart')">
+							<h3>C</h3>
+							<p>
+								Download the <a href="https://github.com/ratajs/Advanced-Division-c/blob/1.2/AdvDiv.c" target="_blank" tabindex="7">AdvDiv.c</a> file and import it.
+							</p>
+							<p>
+								<strong>Usage:</strong>
+								<code class="lolight">
+									char *advdiv(char *n1, char *n2, char minch, char decch, String rch1, String rch2)
+								</code>
+								<ul>
+									<li><span class="mono">n1</span>&nbsp;&ndash;&nbsp;First number (numerator)</li>
+									<li><span class="mono">n2</span>&nbsp;&ndash;&nbsp;Second number (denominator)</li>
+									<li><span class="mono">minch</span>&nbsp;&ndash;&nbsp;Character representing the minus sign (default <code class="lolight">'-'</code>)</li>
+									<li><span class="mono">decch</span>&nbsp;&ndash;&nbsp;Character separating the decimal digits (default <code class="lolight">'.'</code>)</li>
+									<li><span class="mono">rch1</span>&nbsp;&ndash;&nbsp;Character to be inserted before recursion (default <code class="lolight">'['</code>)</li>
+									<li><span class="mono">rch2</span>&nbsp;&ndash;&nbsp;Character to be inserted after recursion (default <code class="lolight">']'</code>)</li>
+								</ul>
+								An empty string is returned if an error occurs. The returned string is always allocated with malloc, don’t forget to free it.<br />
+								See the <a href="https://github.com/ratajs/Advanced-Division-c/" tabindex="8">repository</a>.
 							</p>
 						</section>
 						<section :class="activeSection('cli')" @focusin="select('cli')">
