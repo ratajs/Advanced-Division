@@ -19,14 +19,15 @@
 				<button id="theme-switcher" aria-hidden="true" @click="dark = !dark" x-text="themeSwitcherIcon" tabindex="-1"></button>
 			</header>
 			<main x-data="sections" x-init="section ='js'">
-				<div :class="collapsed('js py dart cli')" tabindex="12" @click="expand('js py dart cli')" @focus="expand('js py dart cli')">
+				<div :class="collapsed('js py dart c cli')" tabindex="13" @click="expand('js py dart c cli')" @focus="expand('js py dart c cli')">
 					<h2>API&nbsp;/&nbsp;CLI</h2>
 					<nav>
 						<button :class="activeSection('js')" @click="select('js')" @focus="select('js')" tabindex="1">JavaScript</button>
 						<button :class="activeSection('py')" @click="select('py')" @focus="select('py')" tabindex="3">Python</button>
 						<button :class="activeSection('dart')" @click="select('dart')" @focus="select('dart')" tabindex="6">Dart</button>
-						<button :class="activeSection('cli')" @click="select('cli')" @focus="select('cli')" tabindex="9">CLI</button>
-						<button class="next" @click="next('js py dart cli')"><span x-text="nextLabel('js py dart cli', 'JavaScript;Python;Dart;CLI')"></span><span class="material-icons-round">navigate_next</span></button>
+						<button :class="activeSection('c')" @click="select('c')" @focus="select('c')" tabindex="9">C</button>
+						<button :class="activeSection('cli')" @click="select('cli')" @focus="select('cli')" tabindex="12">CLI</button>
+						<button class="next" @click="next('js py dart c cli')"><span x-text="nextLabel('js py dart c cli', 'JavaScript;Python;Dart;C;CLI')"></span><span class="material-icons-round">navigate_next</span></button>
 					</nav>
 					<div>
 						<section :class="activeSection('js')" @focusin="select('js')">
@@ -101,10 +102,10 @@
 								See the <a href="https://github.com/ratajs/Advanced-Division-dart/" tabindex="8">repository</a>.
 							</p>
 						</section>
-						<section :class="activeSection('dart')" @focusin="select('dart')">
+						<section :class="activeSection('c')" @focusin="select('c')">
 							<h3>C</h3>
 							<p>
-								Download the <a href="https://github.com/ratajs/Advanced-Division-c/blob/1.2/AdvDiv.c" target="_blank" tabindex="7">AdvDiv.c</a> file and import it.
+								Download the <a href="https://github.com/ratajs/Advanced-Division-c/blob/1.2/AdvDiv.c" target="_blank" tabindex="10">AdvDiv.c</a> file and import it.
 							</p>
 							<p>
 								<strong>Usage:</strong>
@@ -120,7 +121,7 @@
 									<li><span class="mono">rch2</span>&nbsp;&ndash;&nbsp;Character to be inserted after recursion (default <code class="lolight">']'</code>)</li>
 								</ul>
 								An empty string is returned if an error occurs. The returned string is always allocated with malloc, don’t forget to free it.<br />
-								See the <a href="https://github.com/ratajs/Advanced-Division-c/" tabindex="8">repository</a>.
+								See the <a href="https://github.com/ratajs/Advanced-Division-c/" tabindex="11">repository</a>.
 							</p>
 						</section>
 						<section :class="activeSection('cli')" @focusin="select('cli')">
@@ -144,13 +145,13 @@
 						</section>
 					</div>
 				</div>
-				<div :class="collapsed('kirigami flutter www nwjs')" tabindex="13" @click="expand('kirigami flutter www nwjs')" @focus="expand('kirigami flutter www nwjs')">
+				<div :class="collapsed('kirigami flutter www nwjs')" tabindex="14" @click="expand('kirigami flutter www nwjs')" @focus="expand('kirigami flutter www nwjs')">
 					<h2>GUI</h2>
 					<nav>
-						<button :class="activeSection('kirigami')" @click="select('kirigami')" @focus="select('kirigami')" tabindex="14">Kirigami</button>
-						<button :class="activeSection('flutter')" @click="select('flutter')" @focus="select('flutter')" tabindex="19">Flutter</button>
-						<button :class="activeSection('www')" @click="select('www')" @focus="select('www')" tabindex="27">Web</button>
-						<button :class="activeSection('nwjs')" @click="select('nwjs')" @focus="select('nwjs')" tabindex="30">NW.js</button>
+						<button :class="activeSection('kirigami')" @click="select('kirigami')" @focus="select('kirigami')" tabindex="15">Kirigami</button>
+						<button :class="activeSection('flutter')" @click="select('flutter')" @focus="select('flutter')" tabindex="20">Flutter</button>
+						<button :class="activeSection('www')" @click="select('www')" @focus="select('www')" tabindex="28">Web</button>
+						<button :class="activeSection('nwjs')" @click="select('nwjs')" @focus="select('nwjs')" tabindex="31">NW.js</button>
 						<button class="next" @click="next('kirigami flutter www nwjs')"><span x-text="nextLabel('kirigami flutter www nwjs', 'Kirigami;Flutter;Web;NW.js')"></span><span class="material-icons-round">navigate_next</span></button>
 					</nav>
 					<div>
@@ -164,7 +165,7 @@
 								<strong>Installation instructions for Linux (Flatpak):</strong>
 								<ul>
 									<li>Flatpak is a universal package distribution system for Linux, this method should work on most desktop Linux systems</li>
-									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-Kirigami-Linux.flatpak/download" tabindex="15">Advanced-Division-Kirigami-Linux.flatpak</a> file</li>
+									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-Kirigami-Linux.flatpak/download" tabindex="16">Advanced-Division-Kirigami-Linux.flatpak</a> file</li>
 									<li>Open terminal (often can be done with <kbd>Ctrl+Alt+T</kbd>)</li>
 									<li>Navigate to the directory, where the downloaded file is, e. g. by entering <code>cd ~/Downloads/</code> and pressing enter</li>
 									<li>Enter <code>flatpak install Advanced-Division-Kirigami-Linux.flatpak</code> and hit enter</li>
@@ -174,14 +175,14 @@
 								<strong>Installation instructions for Linux (Deb package):</strong>
 								<ul>
 									<li>You can install the program with a deb package if you use Debian‐based OS, like Ubuntu, Pop!_OS, Linux Mint, elementary OS or KDE neon</li>
-									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-Kirigami-Linux.deb/download" tabindex="16">Advanced-Division-Kirigami-Linux.deb</a> file</li>
+									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-Kirigami-Linux.deb/download" tabindex="17">Advanced-Division-Kirigami-Linux.deb</a> file</li>
 									<li>Enter <code>sudo dpkg -i Advanced-Division-Kirigami-Linux.deb</code> and hit enter</li>
 									<li>You can uninstall the package with <code>sudo dpkg -r advdiv</code></li>
 								</ul>
 								<strong>Installation instructions for Linux (archive with installation script):</strong>
 								<ul>
 									<li>You can use this method if neither of the previous worked for you or you don&rsquo;t have a Debian‐based OS and don&rsquo;t want to use Flatpak, but there could be problems with KDE dependencies (if you use KDE apps or Plasma desktop, you will likely have all the required packages installed)</li>
-									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-Kirigami-Linux.tar.gz/download" tabindex="17">Advanced-Division-Kirigami-Linux.tar.gz</a></li>
+									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-Kirigami-Linux.tar.gz/download" tabindex="18">Advanced-Division-Kirigami-Linux.tar.gz</a></li>
 									<li>Decompress the archive</li>
 									<li>Open terminal (often can be done with <kbd>Ctrl+Alt+T</kbd>)</li>
 									<li>Navigate to the decompressed folder, e. g. by entering <code>cd ~/Downloads/AdvDiv-Kirigami</code> and pressing enter</li>
@@ -191,7 +192,7 @@
 									<li>To uninstall the app, run the <code>uninstall.sh</code> file the same way as <code>install.sh</code></li>
 									<li>You can replace <code>install.sh</code> with <code>install-noroot.sh</code> and <code>uninstall.sh</code> with <code>uninstall-noroot.sh</code> to install / uninstall the app only for the current user (doesn&rsquo;t require root priviliges)</li>
 								</ul>
-								See the <a href="https://invent.kde.org/ratajsk/advanced-division" tabindex="18">repository</a>.
+								See the <a href="https://invent.kde.org/ratajsk/advanced-division" tabindex="19">repository</a>.
 							</p>
 							<img :src="screenshot('kirigami')" width="1120" height="879" alt="screenshot">
 						</section>
@@ -203,8 +204,8 @@
 							<p>
 								<strong>Installation instructions for Android:</strong>
 								<ul>
-									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-Flutter-Android.apk/download" tabindex="20">Advanced-Division-Flutter-Android.apk</a> file to your Android device</li>
-									<li>Try opening the file, allow installing apps from this source if prompted, more info <a href="https://www.xda-developers.com/how-to-sideload-install-android-app-apk/#apkinstall" tabindex="21">here</a></li>
+									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-Flutter-Android.apk/download" tabindex="21">Advanced-Division-Flutter-Android.apk</a> file to your Android device</li>
+									<li>Try opening the file, allow installing apps from this source if prompted, more info <a href="https://www.xda-developers.com/how-to-sideload-install-android-app-apk/#apkinstall" tabindex="22">here</a></li>
 									<li>Once opened, click install</li>
 									<li>After the process ended, the app should be installed</li>
 									<li>You can uninstall it like other applications</li>
@@ -212,7 +213,7 @@
 								<strong>Installation instructions for Linux (Flatpak):</strong>
 								<ul>
 									<li>Flatpak is a universal package distribution system for Linux, this method should work on most desktop Linux systems</li>
-									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-Flutter-Linux.flatpak/download" tabindex="22">Advanced-Division-Flutter-Linux.flatpak</a> file</li>
+									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-Flutter-Linux.flatpak/download" tabindex="23">Advanced-Division-Flutter-Linux.flatpak</a> file</li>
 									<li>Open terminal (often can be done with <kbd>Ctrl+Alt+T</kbd>)</li>
 									<li>Navigate to the directory, where the downloaded file is, e. g. by entering <code>cd ~/Downloads/</code> and pressing enter</li>
 									<li>Enter <code>flatpak install Advanced-Division-Flutter-Linux.flatpak</code> and hit enter</li>
@@ -222,14 +223,14 @@
 								<strong>Installation instructions for Linux (Deb package):</strong>
 								<ul>
 									<li>You can install the program with a deb package if you use Debian‐based OS, like Ubuntu, Pop!_OS, Linux Mint, elementary OS or KDE neon</li>
-									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-Flutter-Linux.deb/download" tabindex="23">Advanced-Division-Flutter-Linux.deb</a> file</li>
+									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-Flutter-Linux.deb/download" tabindex="24">Advanced-Division-Flutter-Linux.deb</a> file</li>
 									<li>Enter <code>sudo dpkg -i Advanced-Division-Flutter-Linux.deb</code> and hit enter</li>
 									<li>You can uninstall the package with <code>sudo dpkg -r advdiv-flutter</code></li>
 								</ul>
 								<strong>Installation instructions for Linux (archive with installation script):</strong>
 								<ul>
 									<li>You can use this method if neither of the previous worked for you or you don&rsquo;t have a Debian‐based OS and don&rsquo;t want to use Flatpak, but there could be problems with KDE dependencies (if you use KDE apps or Plasma desktop, you will likely have all the required packages installed)</li>
-									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-Flutter-Linux.tar.gz/download" tabindex="24">Advanced-Division-Flutter-Linux.tar.gz</a></li>
+									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-Flutter-Linux.tar.gz/download" tabindex="25">Advanced-Division-Flutter-Linux.tar.gz</a></li>
 									<li>Decompress the archive</li>
 									<li>Open terminal (often can be done with <kbd>Ctrl+Alt+T</kbd>)</li>
 									<li>Navigate to the decompressed folder, e. g. by entering <code>cd ~/Downloads/AdvDiv-Flutter</code> and pressing enter</li>
@@ -241,12 +242,12 @@
 								</ul>
 								<strong>Installation instructions for Windows:</strong>
 								<ul>
-									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-Flutter-Windows.exe/download" tabindex="25">Advanced-Division-Flutter-Windows.exe</a> file</li>
+									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-Flutter-Windows.exe/download" tabindex="26">Advanced-Division-Flutter-Windows.exe</a> file</li>
 									<li>Follow the instructions in the wizard</li>
 									<li>After finishing the wizard, the app should be installed</li>
 									<li>The uninstaller should be in the install directory</li>
 								</ul>
-								See the <a href="https://github.com/ratajs/Advanced-Division-Flutter" tabindex="26">repository</a>.
+								See the <a href="https://github.com/ratajs/Advanced-Division-Flutter" tabindex="27">repository</a>.
 							</p>
 							<div class="image-grid">
 								<img src="./imgs/screenshot_flutter.png" width="1370" height="858" alt="screenshot">
@@ -256,7 +257,7 @@
 						<section :class="activeSection('www')" @focusin="select('www')">
 							<h3>Web</h3>
 							<p>
-								This version is meant to be opened in a browser. The file is available online <a href="demo.html" tabindex="28">here</a> and the offline version is <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division.html/download" tabindex="29">here</a> for you to download.
+								This version is meant to be opened in a browser. The file is available online <a href="demo.html" tabindex="29">here</a> and the offline version is <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division.html/download" tabindex="30">here</a> for you to download.
 							</p>
 							<img src="./imgs/screenshot_www.png" width="845" height="700" alt="screenshot">
 						</section>
@@ -268,13 +269,13 @@
 							<p>
 								<strong>Installation instructions for Linux:</strong>
 								<ul>
-									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-NWjs-Linux.tar.gz/download" tabindex="31">Advanced-Division-NWjs-Linux.tar.gz</a> or <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-NWjs-Linux-offline.tar.gz/download" tabindex="21">Advanced-Division-NWjs-Linux-offline.tar.gz</a> file</li>
+									<li>Download the <a href="https://sourceforge.net/projects/advanced-division/files/Advanced-Division-NWjs-Linux.tar.gz/download" tabindex="32">Advanced-Division-NWjs-Linux.tar.gz</a> file</li>
 									<li>Decompress the archive</li>
 									<li>Open terminal (often can be done with <kbd>Ctrl+Alt+T</kbd>)</li>
 									<li>Navigate to the decompressed folder, e. g. by entering <code>cd ~/Downloads/Advanced-Division</code> and pressing enter</li>
 									<li>Enter <code>chmod +x install.sh</code>, hit enter and then <code>./install.sh</code> and press enter again</li>
 									<li>Enter your root password if prompted</li>
-									<li>The app should be installed in a short time (it can take longer with the non‐offline installer, as it needs to download NW.js unless already installed, the speed depends on your internet connection)</li>
+									<li>The app should be installed in a while (the speed depends on your internet connection)</li>
 									<li>The uninstaller should be in the install directory (<code>/var/nw-apps/Advanced-Division/uninstall.sh</code>), you can execute it like the install script.</li>
 								</ul>
 								<strong>Installation instructions for Windows:</strong>
