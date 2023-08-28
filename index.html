@@ -35,17 +35,18 @@
 								Include this code to use Advanced Division in your website&nbsp;/&nbsp;JavaScript project:
 							</p>
 							<code class="lolight">
-								&lt;script src="https://cdn.jsdelivr.net/gh/ratajs/Advanced-Division-js@1.1/AdvDiv.min.js" type="text/javascript" integrity="sha384-F92uLNwg7qk0tLL5q0cIZ6SCkXVQUVfcdEeTaWB8KM21oqoz4ncJVAhgoZBx+UCo" crossorigin="anonymous"&gt;&lt;/script&gt;
+								&lt;script src="https://cdn.jsdelivr.net/gh/ratajs/Advanced-Division-js@1.2/AdvDiv.min.js" type="text/javascript" integrity="sha384-V0RdxveNPPBfIo4374oMkSjSkDBFh29wOCfIATs+/0CetZk8Bsr9rVZYNF3hedi8" crossorigin="anonymous"&gt;&lt;/script&gt;
 							</code>
 							<p>
 								<strong>Usage:</strong>
 								<code class="lolight">
-									advdiv(n1, n2[, r[, rstr1, rstr2]])
+									advdiv(n1, n2[, r[, rstr1, [rstr2]]])
 								</code>
 								<ul>
 									<li><span class="mono">n1</span>&nbsp;&ndash;&nbsp;First number (numerator)</li>
 									<li><span class="mono">n2</span>&nbsp;&ndash;&nbsp;Second number (denominator)</li>
-									<li><span class="mono">r</span>&nbsp;&ndash;&nbsp;Recurring decimals of the first number (default <code class="lolight">0</code>)</li>
+									<li><span class="mono">minstr</span>&nbsp;&ndash;&nbsp;String representing the minus sign (default <code class="lolight">-</code>)</li>
+									<li><span class="mono">decstr</span>&nbsp;&ndash;&nbsp;String separating the decimal digits (default <code class="lolight">.</code>)</li>
 									<li><span class="mono">rstr1</span>&nbsp;&ndash;&nbsp;String to be inserted before recursion (default <code class="lolight">"["</code>)</li>
 									<li><span class="mono">rstr2</span>&nbsp;&ndash;&nbsp;String to be inserted after recursion (default <code class="lolight">"]"</code>)</li>
 								</ul>
@@ -63,12 +64,13 @@
 							<p>
 								<strong>Usage:</strong>
 								<code class="lolight">
-									AdvDiv.div(n1, n2[, r[, rstr1, rstr2]])
+									AdvDiv.div(n1, n2[, minstr, [decstr[, rstr1, rstr2]]])
 								</code>
 								<ul>
 									<li><span class="mono">n1</span>&nbsp;&ndash;&nbsp;First number (numerator)</li>
 									<li><span class="mono">n2</span>&nbsp;&ndash;&nbsp;Second number (denominator)</li>
-									<li><span class="mono">r</span>&nbsp;&ndash;&nbsp;Recurring decimals of the first number (default <code class="lolight">0</code>)</li>
+									<li><span class="mono">minstr</span>&nbsp;&ndash;&nbsp;String representing the minus sign (default <code class="lolight">-</code>)</li>
+									<li><span class="mono">decstr</span>&nbsp;&ndash;&nbsp;String separating the decimal digits (default <code class="lolight">.</code>)</li>
 									<li><span class="mono">rstr1</span>&nbsp;&ndash;&nbsp;String to be inserted before recursion (default <code class="lolight">"["</code>)</li>
 									<li><span class="mono">rstr2</span>&nbsp;&ndash;&nbsp;String to be inserted after recursion (default <code class="lolight">"]"</code>)</li>
 								</ul>
@@ -86,12 +88,13 @@
 							<p>
 								<strong>Usage:</strong>
 								<code class="lolight">
-									advdiv(double n1, double n2[, int r[, String rstr1, String rstr2]])
+									advdiv(String n1, String n2[, String minstr[, String decstr[, String rstr1, String rstr2]]])
 								</code>
 								<ul>
 									<li><span class="mono">n1</span>&nbsp;&ndash;&nbsp;First number (numerator)</li>
 									<li><span class="mono">n2</span>&nbsp;&ndash;&nbsp;Second number (denominator)</li>
-									<li><span class="mono">r</span>&nbsp;&ndash;&nbsp;Recurring decimals of the first number (default <code class="lolight">0</code>)</li>
+									<li><span class="mono">minstr</span>&nbsp;&ndash;&nbsp;String representing the minus sign (default <code class="lolight">-</code>)</li>
+									<li><span class="mono">decstr</span>&nbsp;&ndash;&nbsp;String separating the decimal digits (default <code class="lolight">.</code>)</li>
 									<li><span class="mono">rstr1</span>&nbsp;&ndash;&nbsp;String to be inserted before recursion (default <code class="lolight">"["</code>)</li>
 									<li><span class="mono">rstr2</span>&nbsp;&ndash;&nbsp;String to be inserted after recursion (default <code class="lolight">"]"</code>)</li>
 								</ul>
@@ -101,18 +104,19 @@
 						<section :class="activeSection('cli')" @focusin="select('cli')">
 							<h3>CLI</h3>
 							<p>
-								Download the <a href="https://github.com/ratajs/Advanced-Division-dart/releases/download/1.1/advdiv" tabindex="10">advdiv</a> file for Linux or <a href="https://github.com/ratajs/Advanced-Division-dart/releases/download/1.1/advdiv.exe" tabindex="11">advdiv.exe</a> for Windows.
+								You can use the C or Dart compiled binaries (from GitHub releases), it is also possible to use the Python script that way (e. g. <code>python3 AdvDiv.py <em>n1</em> <em>n2</em></code>)
 								You can move the file to <span class="mono">/bin/</span> or another directory specified in the <span class="mono">PATH</span> environment variable on Linux to use it anywhere.
 							</p>
 							<p>
 								<strong>Usage:</strong>
-								<code>advdiv n1 n2[ r]</code>
+								<code>advdiv n1 n2 [minstr [decstr [rstr1 [rstr2]]]]</code>
 								<ul>
 									<li><span class="mono">n1</span>&nbsp;&ndash;&nbsp;First number (numerator)</li>
 									<li><span class="mono">n2</span>&nbsp;&ndash;&nbsp;Second number (denominator)</li>
-									<li><span class="mono">r</span>&nbsp;&ndash;&nbsp;Recurring decimals of the first number (default <code class="lolight">0</code>)</li>
+									<li><span class="mono">minstr</span>&nbsp;&ndash;&nbsp;String representing the minus sign (default <code class="lolight">-</code>)</li>
+									<li><span class="mono">decstr</span>&nbsp;&ndash;&nbsp;String separating the decimal digits (default <code class="lolight">.</code>)</li>
 									<li><span class="mono">rstr1</span>&nbsp;&ndash;&nbsp;String to be inserted before recursion (default <code class="lolight">"["</code>)</li>
-									<li><span class="mono">rstr2</span>&nbsp;&ndash;&nbsp;String to be inserted after recursion (default <code class="lolight">"]"</code>)</li>
+									<li><span class="mono">rstr2</span>&nbsp;&ndash;&nbsp;String to be inserted after recursion (default <code class="lolight">"]"</code> or <code class="lolight">""</code> when <span class="mono">rstr1</span> is specified)</li>
 								</ul>
 							</p>
 						</section>

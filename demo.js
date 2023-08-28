@@ -40,10 +40,6 @@ function keydown(event) {
 		showCaret();
 	};
 	var ae = document.getElementsByClassName("focus")[0];
-	if(ae.id=="n2" && event.key=="r") {
-		alert("Not yet supported");
-		return false;
-	};
 	if(window.caret < 0)
 		window.caret = 0;
 	if(window.caret > ae.innerText.length)
@@ -227,13 +223,9 @@ function submit() {
 	else if(document.getElementById("n1").innerText.length < 1 || parseFloat(document.getElementById("n1").innerText)==0 || (document.getElementById("n1").children.length > 0 && document.getElementById("n1").childNodes.length < 2))
 		document.getElementById("result").innerHTML = 0;
 	else {
-		if(document.getElementById("n1").children.length < 1 || document.getElementById("n1").children[0].innerText.length < 1)
-			var r = 0;
-		else
-			var r = document.getElementById("n1").children[0].innerText;
 		document.getElementsByTagName("button")[0].className = "computing";
 		window.setTimeout(function() {
-			document.getElementById("result").innerHTML = advdiv(parseFloat(document.getElementById("n1").childNodes[0].data), parseFloat(document.getElementById("n2").innerText), r, "<em>", "</em>");
+			document.getElementById("result").innerHTML = advdiv(document.getElementById("n1").innerHTML, document.getElementById("n2").innerHTML, "−", ".", "<em>", "</em>");
 			while(true) {
 				if(document.getElementById("result").innerHTML.length > 0) {
 					document.getElementsByTagName("button")[0].className = "";
@@ -262,11 +254,11 @@ document.body.onload = function(event) {
 	document.getElementsByTagName("span")[0].onclick = click;
 	document.getElementsByTagName("span")[1].onclick = click;
 	document.body.onclick = click;
-	var i = 0;
+	var x = 0;
 	var numpadkeys = document.getElementsByClassName("numpadkey");
-	while(i < numpadkeys.length) {
-		numpadkeys[i].onmousedown = mousedown;
-		i++;
+	while(x < numpadkeys.length) {
+		numpadkeys[x].onmousedown = mousedown;
+		x++;
 	};
 	window.onresize();
 };
